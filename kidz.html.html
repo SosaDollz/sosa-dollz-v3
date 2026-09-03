@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sosa Kidz™ Generator — Little Imaginations. Big Dreams.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,500&amp;family=Jost:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FBF7F0;
+  --cream-deep:#F3ECDF;
+  --blush:#E9BFC3;
+  --blush-soft:#F6E3E5;
+  --blush-deep:#C97F89;
+  --sage:#9DBBAE;
+  --sage-soft:#E2EEE8;
+  --teal:#5E8B7E;
+  --gold:#B98A47;
+  --cognac:#A96F3C;
+  --mint:#D9EDE4;
+  --noir:#26221D;
+  --noir-soft:#5C554B;
+  --white:#FFFFFF;
+  --shadow:0 10px 30px rgba(38,34,29,.08);
+  --shadow-lift:0 16px 40px rgba(38,34,29,.14);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  background:var(--cream);
+  color:var(--noir);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.serif{font-family:'Playfair Display',serif}
+button{font-family:'Jost',sans-serif;cursor:pointer;border:none}
+::selection{background:var(--blush);color:var(--noir)}
+
+/* ---------- NAV ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,247,240,.92);
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--cream-deep);
+  padding:14px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.25rem;letter-spacing:.02em}
+.nav-logo span{color:var(--blush-deep)}
+.nav-logo .tm{font-size:.55em;vertical-align:super;color:var(--gold)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links .navlink{background:none;border:none;color:var(--noir-soft);font-size:.92rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;padding:0}
+.nav-links .navlink:hover{color:var(--cognac)}
+.nav-cta{
+  background:var(--noir);color:var(--cream);
+  padding:10px 22px;border-radius:999px;
+  font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;transition:.25s;
+}
+.nav-cta:hover{background:var(--cognac);color:var(--cream)}
+@media(max-width:760px){.nav-links .navlink{display:none}}
+
+/* ---------- HERO ---------- */
+.hero{
+  padding:72px 5% 84px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 12% 18%, var(--blush-soft) 0%, transparent 42%),
+    radial-gradient(circle at 88% 24%, var(--mint) 0%, transparent 40%),
+    radial-gradient(circle at 50% 100%, var(--cream-deep) 0%, transparent 55%),
+    var(--cream);
+  position:relative;overflow:hidden;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--white);border:1px solid var(--blush);
+  padding:8px 20px;border-radius:999px;
+  font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blush-deep);box-shadow:var(--shadow);margin-bottom:26px;
+}
+.hero-eyebrow::before{content:'✿';color:var(--gold)}
+.hero h1{
+  font-size:clamp(2.6rem,6vw,4.6rem);
+  font-weight:800;line-height:1.08;letter-spacing:-.01em;
+  margin-bottom:8px;
+}
+.hero h1 .kidz{
+  color:var(--blush-deep);font-style:italic;font-weight:500;position:relative;
+}
+.hero h1 .kidz::after{
+  content:'';position:absolute;left:0;right:0;bottom:6px;height:12px;
+  background:var(--mint);z-index:-1;border-radius:6px;
+}
+.hero-tag{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(1.15rem,2.4vw,1.5rem);color:var(--teal);margin-bottom:22px;
+}
+.hero p.sub{max-width:620px;margin:0 auto 36px;color:var(--noir-soft);font-size:1.06rem;font-weight:300}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+  background:var(--noir);color:var(--cream);
+  padding:16px 38px;border-radius:999px;
+  font-size:.95rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;transition:.25s;box-shadow:var(--shadow);
+  display:inline-block;
+}
+.btn-primary:hover{background:var(--cognac);transform:translateY(-2px);box-shadow:var(--shadow-lift)}
+.btn-ghost{
+  background:var(--white);color:var(--noir);
+  border:1.5px solid var(--noir);
+  padding:16px 38px;border-radius:999px;
+  font-size:.95rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;transition:.25s;display:inline-block;
+}
+.btn-ghost:hover{background:var(--blush-soft);border-color:var(--blush-deep);color:var(--blush-deep)}
+.hero-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+.hero-pill{
+  background:var(--white);border:1px solid var(--cream-deep);
+  padding:10px 20px;border-radius:14px;font-size:.85rem;font-weight:500;
+  color:var(--noir-soft);box-shadow:var(--shadow);
+}
+.hero-pill b{color:var(--cognac);font-weight:700}
+
+/* ---------- FEATURE STRIP ---------- */
+.strip{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;padding:54px 5%;max-width:1200px;margin:0 auto;
+}
+.strip-card{
+  background:var(--white);border-radius:var(--radius);
+  padding:26px 24px;box-shadow:var(--shadow);
+  border-top:4px solid var(--blush);
+}
+.strip-card:nth-child(2){border-top-color:var(--sage)}
+.strip-card:nth-child(3){border-top-color:var(--gold)}
+.strip-card:nth-child(4){border-top-color:var(--blush-deep)}
+.strip-card .num{
+  font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--gold);
+}
+.strip-card h3{font-size:1.1rem;margin:6px 0 4px}
+.strip-card p{font-size:.88rem;color:var(--noir-soft);font-weight:300}
+
+/* ---------- APP LAYOUT ---------- */
+.app{
+  max-width:1280px;margin:0 auto;padding:30px 4% 90px;
+}
+.app-head{text-align:center;margin-bottom:38px}
+.app-head h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700}
+.app-head h2 em{color:var(--blush-deep)}
+.app-head p{color:var(--noir-soft);font-weight:300;max-width:560px;margin:8px auto 0}
+.app-grid{
+  display:grid;grid-template-columns:1fr 400px;gap:30px;align-items:start;
+}
+@media(max-width:1020px){.app-grid{grid-template-columns:1fr}}
+
+/* ---------- STEP CARDS ---------- */
+.step-card{
+  background:var(--white);border-radius:var(--radius);
+  box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden;
+  border:1px solid var(--cream-deep);
+}
+.step-head{
+  width:100%;display:flex;align-items:center;gap:16px;
+  padding:20px 24px;background:var(--white);text-align:left;
+  transition:.2s;
+}
+.step-head:hover{background:var(--cream)}
+.step-badge{
+  min-width:44px;height:44px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;
+  background:var(--blush-soft);color:var(--blush-deep);
+}
+.step-card:nth-child(even) .step-badge{background:var(--sage-soft);color:var(--teal)}
+.step-title{flex:1}
+.step-title h3{font-size:1.18rem;font-weight:700}
+.step-title p{font-size:.82rem;color:var(--noir-soft);font-weight:400}
+.step-chev{color:var(--gold);font-size:1.1rem;transition:.3s}
+.step-card.open .step-chev{transform:rotate(180deg)}
+.step-body{display:none;padding:6px 24px 26px;border-top:1px dashed var(--cream-deep)}
+.step-card.open .step-body{display:block}
+.field-label{
+  font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--cognac);margin:18px 0 8px;display:flex;align-items:center;gap:8px;
+}
+.field-label::after{content:'';flex:1;height:1px;background:var(--cream-deep)}
+.field-label .multi{
+  font-size:.62rem;background:var(--mint);color:var(--teal);
+  padding:2px 10px;border-radius:999px;letter-spacing:.08em;
+}
+input[type=text]{
+  width:100%;padding:13px 16px;border-radius:12px;
+  border:1.5px solid var(--cream-deep);background:var(--cream);
+  font-family:'Jost',sans-serif;font-size:.95rem;color:var(--noir);
+  transition:.2s;
+}
+input[type=text]:focus{outline:none;border-color:var(--blush-deep);background:var(--white);box-shadow:0 0 0 4px var(--blush-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{
+  padding:9px 18px;border-radius:999px;
+  background:var(--cream);border:1.5px solid var(--cream-deep);
+  font-size:.88rem;font-weight:500;color:var(--noir-soft);
+  transition:.18s;user-select:none;
+}
+.chip:hover{border-color:var(--blush);background:var(--blush-soft);color:var(--noir)}
+.chip.on{
+  background:var(--noir);border-color:var(--noir);color:var(--cream);
+  box-shadow:0 4px 12px rgba(38,34,29,.22);
+}
+.chip.on.alt{background:var(--teal);border-color:var(--teal)}
+
+.step-card.flash{animation:flashGlow 1.6s ease}
+@keyframes flashGlow{
+  0%{box-shadow:0 0 0 0 rgba(185,138,71,.0)}
+  25%{box-shadow:0 0 0 6px rgba(185,138,71,.45)}
+  100%{box-shadow:var(--shadow)}
+}
+
+/* ---------- COLLECTION PRESETS ---------- */
+.preset-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:4px}
+.preset{
+  padding:10px 18px;border-radius:14px;
+  background:linear-gradient(135deg,var(--blush-soft),var(--mint));
+  border:1.5px solid var(--blush);
+  font-size:.88rem;font-weight:600;color:var(--noir);
+  transition:.2s;
+}
+.preset:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--gold)}
+.preset.on{background:var(--gold);color:var(--white);border-color:var(--gold)}
+
+/* ---------- SIDEBAR / STORYBOOK PREVIEW ---------- */
+.sidebar{position:sticky;top:86px}
+@media(max-width:1020px){.sidebar{position:static}}
+.storybook{
+  background:var(--white);border-radius:var(--radius);
+  box-shadow:var(--shadow-lift);padding:0;overflow:hidden;
+  border:1px solid var(--cream-deep);position:relative;
+}
+.storybook::before{ /* gold bookmark ribbon */
+  content:'';position:absolute;top:0;right:28px;width:26px;height:58px;
+  background:linear-gradient(180deg,var(--gold),var(--cognac));
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);
+  z-index:2;
+}
+.sb-head{
+  background:var(--noir);color:var(--cream);
+  padding:20px 24px 18px;
+}
+.sb-head h3{font-size:1.15rem;font-weight:700}
+.sb-head h3 span{color:var(--blush)}
+.sb-head p{font-size:.78rem;color:rgba(251,247,240,.65);letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.sb-page{
+  padding:22px 24px;
+  background:
+    linear-gradient(var(--white) 0 0) padding-box,
+    repeating-linear-gradient(0deg,transparent,transparent 26px,rgba(185,138,71,.07) 27px);
+  min-height:170px;max-height:290px;overflow-y:auto;
+  font-size:.86rem;color:var(--noir-soft);white-space:pre-wrap;
+  border-bottom:1px dashed var(--cream-deep);
+}
+.sb-page .placeholder{font-style:italic;color:#B8AE9F;font-family:'Playfair Display',serif;font-size:.95rem}
+.sb-meta{padding:14px 24px;display:flex;flex-wrap:wrap;gap:7px}
+.sb-tag{
+  font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;
+  background:var(--sage-soft);color:var(--teal);letter-spacing:.03em;
+}
+.sb-actions{padding:16px 24px 24px;display:grid;gap:10px}
+.gen-btn{
+  width:100%;padding:17px;border-radius:14px;
+  background:linear-gradient(120deg,var(--noir) 0%,#3d362d 100%);
+  color:var(--cream);font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  transition:.25s;box-shadow:var(--shadow);
+}
+.gen-btn:hover{background:var(--cognac);transform:translateY(-2px);box-shadow:var(--shadow-lift)}
+.mini-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini-btn{
+  padding:12px;border-radius:12px;font-size:.82rem;font-weight:600;
+  letter-spacing:.05em;text-transform:uppercase;transition:.2s;
+}
+.mini-surprise{background:var(--blush-soft);color:var(--blush-deep);border:1.5px solid var(--blush)}
+.mini-surprise:hover{background:var(--blush);color:var(--noir)}
+.mini-reset{background:var(--cream);color:var(--noir-soft);border:1.5px solid var(--cream-deep)}
+.mini-reset:hover{border-color:var(--noir-soft)}
+
+/* ---------- OUTPUT ---------- */
+.output{
+  margin-top:48px;background:var(--white);border-radius:22px;
+  box-shadow:var(--shadow-lift);overflow:hidden;display:none;
+  border:1px solid var(--cream-deep);
+}
+.output.show{display:block;animation:rise .5s ease}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.out-head{
+  background:linear-gradient(120deg,var(--noir),#3a332a);
+  color:var(--cream);padding:30px 34px;text-align:center;
+}
+.out-head h2{font-size:1.7rem}
+.out-head h2 span{color:var(--blush)}
+.out-head p{color:rgba(251,247,240,.6);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+.out-tabs{
+  display:flex;flex-wrap:wrap;background:var(--cream);border-bottom:1px solid var(--cream-deep);
+}
+.out-tab{
+  flex:1;min-width:120px;padding:15px 10px;background:none;
+  font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--noir-soft);border-bottom:3px solid transparent;transition:.2s;
+}
+.out-tab:hover{color:var(--cognac)}
+.out-tab.on{color:var(--noir);border-bottom-color:var(--gold);background:var(--white)}
+.out-panel{display:none;padding:30px 34px}
+.out-panel.on{display:block}
+.copy-block{
+  background:var(--cream);border:1.5px solid var(--cream-deep);
+  border-radius:14px;padding:20px;position:relative;margin-bottom:18px;
+  font-size:.9rem;color:var(--noir-soft);white-space:pre-wrap;line-height:1.7;
+}
+.copy-block h4{
+  font-family:'Jost',sans-serif;font-size:.72rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--cognac);margin-bottom:10px;
+}
+.copy-btn{
+  position:absolute;top:14px;right:14px;
+  background:var(--noir);color:var(--cream);
+  padding:7px 16px;border-radius:999px;font-size:.72rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;transition:.2s;
+}
+.copy-btn:hover{background:var(--cognac)}
+.copy-btn.done{background:var(--teal)}
+.idea-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.idea{
+  background:var(--cream);border:1.5px solid var(--cream-deep);border-radius:14px;
+  padding:16px;font-size:.88rem;
+}
+.idea b{display:block;color:var(--noir);margin-bottom:3px}
+.idea span{color:var(--noir-soft);font-weight:300;font-size:.82rem}
+.growup-note{
+  background:var(--mint);border-radius:14px;padding:16px 20px;
+  font-size:.86rem;color:var(--teal);margin-bottom:18px;font-weight:500;
+}
+
+/* ---------- LANDING SECTIONS ---------- */
+.land-sec{padding:70px 5%;max-width:1200px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:44px}
+.sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700}
+.sec-head h2 em{color:var(--blush-deep)}
+.sec-head p{color:var(--noir-soft);font-weight:300;max-width:600px;margin:10px auto 0}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.feat-card{
+  background:var(--white);border-radius:var(--radius);padding:26px 24px;
+  box-shadow:var(--shadow);border:1px solid var(--cream-deep);transition:.25s;
+}
+.feat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift);border-color:var(--blush)}
+.feat-card .fi{
+  width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:14px;background:var(--blush-soft);
+}
+.feat-card:nth-child(3n+2) .fi{background:var(--sage-soft)}
+.feat-card:nth-child(3n) .fi{background:var(--mint)}
+.feat-card h3{font-size:1.08rem;margin-bottom:6px}
+.feat-card p{font-size:.87rem;color:var(--noir-soft);font-weight:300}
+.kit-band{
+  background:linear-gradient(120deg,var(--noir),#3a332a);color:var(--cream);
+  padding:72px 5%;text-align:center;
+}
+.kit-band h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;margin-bottom:8px}
+.kit-band h2 span{color:var(--blush)}
+.kit-band>p{color:rgba(251,247,240,.65);font-weight:300;max-width:560px;margin:0 auto 40px}
+.kit-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:900px;margin:0 auto 44px}
+.kit-item{
+  background:rgba(251,247,240,.07);border:1px solid rgba(251,247,240,.18);
+  padding:12px 22px;border-radius:999px;font-size:.9rem;font-weight:500;
+}
+.kit-item b{color:var(--gold)}
+.btn-gold{
+  background:linear-gradient(120deg,var(--gold),var(--cognac));color:var(--white);
+  padding:17px 42px;border-radius:999px;font-size:.95rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;transition:.25s;box-shadow:var(--shadow-lift);
+}
+.btn-gold:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.combo-sec{padding:70px 5%;max-width:940px;margin:0 auto}
+.combo-box{
+  background:linear-gradient(135deg,var(--blush-soft),var(--mint));
+  border:1.5px solid var(--blush);border-radius:24px;padding:44px 40px;text-align:center;
+  box-shadow:var(--shadow);
+}
+.combo-box h2{font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:12px}
+.combo-box p{color:var(--noir-soft);max-width:640px;margin:0 auto 10px;font-weight:300}
+.combo-box .formula{
+  font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;
+  color:var(--cognac);margin-top:16px;
+}
+.incl-band{background:var(--sage-soft);padding:64px 5%;text-align:center}
+.incl-band h2{font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:14px}
+.incl-band h2 em{color:var(--teal)}
+.incl-band p{color:var(--noir-soft);max-width:640px;margin:0 auto 24px;font-weight:300}
+.incl-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.incl-pill{background:var(--white);border:1px solid var(--sage);color:var(--teal);
+  padding:9px 20px;border-radius:999px;font-size:.85rem;font-weight:600}
+.final-cta{padding:84px 5%;text-align:center;
+  background:radial-gradient(circle at 50% 0%,var(--blush-soft) 0%,transparent 55%),var(--cream)}
+.final-cta h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;margin-bottom:10px}
+.final-cta .tag{font-family:'Playfair Display',serif;font-style:italic;color:var(--teal);
+  font-size:1.2rem;margin-bottom:30px}
+.back-home{
+  background:none;border:none;color:var(--noir-soft);font-size:.85rem;font-weight:500;
+  letter-spacing:.05em;padding:18px 5% 0;display:block;
+}
+.back-home:hover{color:var(--cognac)}
+
+/* ---------- FOOTER ---------- */
+footer{
+  background:var(--noir);color:var(--cream);
+  padding:54px 5% 40px;text-align:center;margin-top:80px;
+}
+footer .f-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700}
+footer .f-logo span{color:var(--blush)}
+footer .f-tag{font-family:'Playfair Display',serif;font-style:italic;color:var(--sage);margin:6px 0 18px}
+footer p{font-size:.8rem;color:rgba(251,247,240,.5);font-weight:300}
+.toast{
+  position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);
+  background:var(--noir);color:var(--cream);padding:13px 28px;border-radius:999px;
+  font-size:.88rem;font-weight:500;box-shadow:var(--shadow-lift);
+  opacity:0;transition:.35s;z-index:99;pointer-events:none;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.chip:focus-visible,.preset:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Sosa <span>Kidz</span><span class="tm">™</span> Generator</div>
+  <div class="nav-links">
+    <button class="navlink" onclick="showLanding()">Home</button>
+    <button class="navlink" onclick="enterGen('#start-building')">Builder</button>
+    <button class="navlink" onclick="enterGen('#collections')">Collections</button>
+    <button class="nav-cta" onclick="enterGen('#start-building')">Start Creating</button>
+  </div>
+</nav>
+
+<!-- ============ LANDING PAGE ============ -->
+<div id="landingView">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">A Sosa Dollz™ Product Line</div>
+  <h1>Little Imaginations.<br><span class="kidz">Big Dreams.</span></h1>
+  <p class="hero-tag">The Sosa Kidz™ Prompt-to-Product System</p>
+  <p class="sub">Design adorable, storybook-quality children's characters — then turn them into sellable products. Coloring books, stickers, nursery art, KDP books, plush concepts &amp; more. From prompt → product → profit.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="enterGen('#start-building')">Build My Character</button>
+    <button class="btn-ghost" onclick="enterGen('#collections')">Browse Collections</button>
+  </div>
+  <div class="hero-pills">
+    <div class="hero-pill"><b>8-Step</b> Guided Builder</div>
+    <div class="hero-pill"><b>17</b> Product Optimizers</div>
+    <div class="hero-pill"><b>14</b> Themed Collections</div>
+    <div class="hero-pill"><b>Growing Up™</b> Age Stages</div>
+    <div class="hero-pill"><b>Etsy SEO</b> + Social Kit Included</div>
+  </div>
+</header>
+
+<!-- HOW IT WORKS -->
+<section class="strip">
+  <div class="strip-card"><div class="num">1</div><h3>Design Your Kid</h3><p>Guided steps for looks, personality, outfit, scene &amp; pose. No overwhelm — just tap and build.</p></div>
+  <div class="strip-card"><div class="num">2</div><h3>Pick Your Product</h3><p>The optimizer rewrites your prompt for coloring books, stickers, wall art, KDP &amp; more.</p></div>
+  <div class="strip-card"><div class="num">3</div><h3>Generate &amp; Create</h3><p>Copy your premium prompt + negative prompt into your favorite AI image tool.</p></div>
+  <div class="strip-card"><div class="num">4</div><h3>Launch &amp; Sell</h3><p>Grab your Etsy SEO, social captions &amp; bundle ideas. Your listing kit is done for you.</p></div>
+</section>
+
+<!-- FEATURES -->
+<section class="land-sec">
+  <div class="sec-head">
+    <h2>Everything You Need to <em>Create &amp; Sell</em></h2>
+    <p>Not just a prompt builder — a complete creative product system designed for sellers.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card"><div class="fi">✿</div><h3>8-Step Character Builder</h3><p>Age, skin tone, hair texture &amp; style, eyes, personality, outfits, poses &amp; camera angles — guided, never overwhelming.</p></div>
+    <div class="feat-card"><div class="fi">✎</div><h3>4 Signature Art Styles</h3><p>The exclusive Sosa Signature Chibi look, plus Premium Storybook, Soft 3D Collectible &amp; Watercolor Nursery.</p></div>
+    <div class="feat-card"><div class="fi">🎨</div><h3>6 Color Moods</h3><p>Natural, brand palette, pastels, warm &amp; cozy, bold brights or elegant neutrals — no two drops look alike.</p></div>
+    <div class="feat-card"><div class="fi">★</div><h3>17 Product Optimizers</h3><p>Your prompt automatically rewrites itself for coloring books, stickers, wall art, T-shirts, KDP, growth charts &amp; more.</p></div>
+    <div class="feat-card"><div class="fi">✦</div><h3>15 One-Tap Collections</h3><p>Back to School, Christmas, Fairy Tale, Space Adventure, Sosa Squad bestie duos — instant themed characters.</p></div>
+    <div class="feat-card"><div class="fi">❀</div><h3>Growing Up™ Feature</h3><p>The same character from baby to tween with consistency-locked prompts — perfect for growth charts &amp; keepsakes.</p></div>
+    <div class="feat-card"><div class="fi">🛡</div><h3>Smart Negative Prompt</h3><p>Auto-adapts to your product and protects skin tone accuracy — every result stays adorable &amp; commercial-ready.</p></div>
+    <div class="feat-card"><div class="fi">👑</div><h3>Sosa Branding Controls</h3><p>One clean SD chest logo, the signature mint crown doodle, or a subtle corner watermark — you decide.</p></div>
+  </div>
+</section>
+
+<!-- OUTPUT KIT BAND -->
+<section class="kit-band">
+  <h2>One Tap. A Complete <span>Creator Kit.</span></h2>
+  <p>Every generation hands you a full product listing kit — not just a prompt.</p>
+  <div class="kit-grid">
+    <div class="kit-item"><b>✿</b> Master Image Prompt</div>
+    <div class="kit-item"><b>🛡</b> Smart Negative Prompt</div>
+    <div class="kit-item"><b>❀</b> Growing Up™ Prompts</div>
+    <div class="kit-item"><b>💡</b> 12 Product Ideas</div>
+    <div class="kit-item"><b>🏷</b> Etsy SEO Title, Tags &amp; Description</div>
+    <div class="kit-item"><b>📱</b> TikTok · IG · Pinterest · FB Captions</div>
+    <div class="kit-item"><b>🎁</b> 10 Bundle Suggestions</div>
+  </div>
+  <button class="btn-gold" onclick="enterGen('#start-building')">✿ Enter the Generator</button>
+</section>
+
+<!-- POWER COMBO -->
+<section class="combo-sec">
+  <div class="combo-box">
+    <h2>The Power Combo ✨</h2>
+    <p>Sosa Kidz™ works hand-in-hand with the <b>Anything But Ordinary™ Creative Director</b> GPT. Build your character here, then drop your prompt into the Creative Director to elevate the concept, spin it into a full product collection, or wrap a luxury brand around it.</p>
+    <div class="formula">Generator + Director = Your Complete Creative Studio</div>
+  </div>
+</section>
+
+<!-- INCLUSIVITY -->
+<section class="incl-band">
+  <h2>Inclusive <em>by Design</em></h2>
+  <p>Because every child deserves to see themselves as the main character.</p>
+  <div class="incl-pills">
+    <span class="incl-pill">9 True-to-Life Skin Tones</span>
+    <span class="incl-pill">Coily 4C to Fine &amp; Soft</span>
+    <span class="incl-pill">Afro Puffs &amp; Box Braids</span>
+    <span class="incl-pill">Little Locs &amp; Bantu Knots</span>
+    <span class="incl-pill">11 Ethnicity Options</span>
+    <span class="incl-pill">Skin Tone Accuracy Protection</span>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Ready to Create?</h2>
+  <p class="tag">Prompt → Product → Profit. The Sosa Dollz™ way. ✿</p>
+  <button class="btn-primary" onclick="enterGen('#start-building')">✿ Start Building Your First Character</button>
+</section>
+
+</div>
+<!-- ============ END LANDING ============ -->
+
+<!-- ============ GENERATOR ============ -->
+<div id="generatorView" style="display:none">
+<button class="back-home" onclick="showLanding()">← Back to Home</button>
+
+<!-- APP -->
+<main class="app" id="builder">
+  <div class="app-head">
+    <h2>The <em>Sosa Kidz</em> Builder</h2>
+    <p>Work through each step, or tap a Collection to auto-fill everything. Your storybook preview updates as you go.</p>
+  </div>
+
+  <div class="app-grid">
+    <!-- LEFT: STEPS -->
+    <div>
+
+      <!-- COLLECTIONS -->
+      <div class="step-card open" id="collections">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">✦</div>
+          <div class="step-title"><h3>Collection Builder</h3><p>One-tap themed presets — instant magic</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Choose a theme (optional)</div>
+          <div class="preset-row" id="presetRow"></div>
+        </div>
+      </div>
+
+      <!-- ART STYLE -->
+      <div class="step-card open" id="start-building">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">✎</div>
+          <div class="step-title"><h3>Art Style</h3><p>Signature Sosa chibi or storybook softness</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Choose your style</div>
+          <div class="chips" data-group="artStyle"></div>
+          <div class="field-label">Color mood</div>
+          <div class="chips" data-group="colorMood"></div>
+          <div class="field-label">Sosa branding <span class="multi">multi-select</span></div>
+          <div class="chips" data-group="branding" data-multi="4"></div>
+        </div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="step-card open">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">1</div>
+          <div class="step-title"><h3>Character Basics</h3><p>Who is your little star?</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Character name (optional)</div>
+          <input type="text" id="charName" placeholder="e.g., Zuri, Mateo, Lily…" oninput="update()">
+          <div class="field-label">Age group</div><div class="chips" data-group="age"></div>
+          <div class="field-label">Gender</div><div class="chips" data-group="gender"></div>
+          <div class="field-label">Skin tone</div><div class="chips" data-group="skin"></div>
+          <div class="field-label">Ethnicity</div><div class="chips" data-group="ethnicity"></div>
+          <div class="field-label">Body type</div><div class="chips" data-group="body"></div>
+          <div class="field-label">Hair texture</div><div class="chips" data-group="hairTex"></div>
+          <div class="field-label">Hair color</div><div class="chips" data-group="hairColor"></div>
+          <div class="field-label">Hair style</div><div class="chips" data-group="hairStyle"></div>
+          <div class="field-label">Eye color</div><div class="chips" data-group="eyes"></div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-card">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">2</div>
+          <div class="step-title"><h3>Personality</h3><p>Shapes their expression &amp; energy</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Pick up to 3 <span class="multi">multi-select</span></div>
+          <div class="chips" data-group="personality" data-multi="3"></div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-card">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">3</div>
+          <div class="step-title"><h3>Outfit</h3><p>Dress your character</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Choose an outfit</div>
+          <div class="chips" data-group="outfit"></div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step-card">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">4</div>
+          <div class="step-title"><h3>Accessories</h3><p>Sweet little details</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Pick up to 2 <span class="multi">multi-select</span></div>
+          <div class="chips" data-group="accessories" data-multi="2"></div>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="step-card">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">5</div>
+          <div class="step-title"><h3>Scene</h3><p>Set the storybook stage</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Choose a scene</div>
+          <div class="chips" data-group="scene"></div>
+        </div>
+      </div>
+
+      <!-- STEP 6 -->
+      <div class="step-card">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">6</div>
+          <div class="step-title"><h3>Pose</h3><p>Bring them to life</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Choose a pose</div>
+          <div class="chips" data-group="pose"></div>
+        </div>
+      </div>
+
+      <!-- STEP 7 -->
+      <div class="step-card">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">7</div>
+          <div class="step-title"><h3>Camera Angle</h3><p>Frame the shot</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Choose an angle</div>
+          <div class="chips" data-group="camera"></div>
+        </div>
+      </div>
+
+      <!-- STEP 8 -->
+      <div class="step-card">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">8</div>
+          <div class="step-title"><h3>Background Style</h3><p>The finishing touch</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Choose a background</div>
+          <div class="chips" data-group="bg"></div>
+        </div>
+      </div>
+
+      <!-- PRODUCT OPTIMIZER -->
+      <div class="step-card">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">★</div>
+          <div class="step-title"><h3>Product Optimizer</h3><p>What are you creating? The prompt adapts.</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Choose your product</div>
+          <div class="chips" data-group="product"></div>
+        </div>
+      </div>
+
+      <!-- GROWING UP -->
+      <div class="step-card">
+        <button class="step-head" onclick="toggleStep(this)">
+          <div class="step-badge">❀</div>
+          <div class="step-title"><h3>Growing Up™ Feature</h3><p>Same character across childhood stages</p></div>
+          <div class="step-chev">▾</div>
+        </button>
+        <div class="step-body">
+          <div class="field-label">Add extra stages <span class="multi">multi-select</span></div>
+          <div class="chips" data-group="stages" data-multi="5"></div>
+          <p style="font-size:.82rem;color:var(--noir-soft);margin-top:12px;font-weight:300">Each selected stage generates its own consistency-locked prompt so your character's face stays recognizable from baby to tween — perfect for growth charts, milestone books &amp; family keepsakes.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: STORYBOOK PREVIEW -->
+    <aside class="sidebar">
+      <div class="storybook">
+        <div class="sb-head">
+          <h3>Storybook <span>Preview</span></h3>
+          <p>Your prompt, live</p>
+        </div>
+        <div class="sb-page" id="preview"><span class="placeholder">Once upon a time… your character prompt will appear on this page as you build. ✿</span></div>
+        <div class="sb-meta" id="metaTags"></div>
+        <div class="sb-actions">
+          <button class="gen-btn" onclick="generate()">✿ Generate My Kit</button>
+          <div class="mini-row">
+            <button class="mini-btn mini-surprise" onclick="surprise()">🎲 Surprise Me</button>
+            <button class="mini-btn mini-reset" onclick="resetAll()">↺ Reset All</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- OUTPUT -->
+  <div id="output-anchor"></div>
+  <div class="output" id="output">
+    <div class="out-head">
+      <h2>Your <span>Sosa Kidz™</span> Creator Kit</h2>
+      <p>Prompt · Products · SEO · Social · Bundles</p>
+    </div>
+    <div class="out-tabs">
+      <button class="out-tab on" data-panel="p-prompt" onclick="showPanel(this)">Image Prompt</button>
+      <button class="out-tab" data-panel="p-neg" onclick="showPanel(this)">Negative Prompt</button>
+      <button class="out-tab" data-panel="p-grow" onclick="showPanel(this)">Growing Up™</button>
+      <button class="out-tab" data-panel="p-products" onclick="showPanel(this)">Product Ideas</button>
+      <button class="out-tab" data-panel="p-etsy" onclick="showPanel(this)">Etsy SEO</button>
+      <button class="out-tab" data-panel="p-social" onclick="showPanel(this)">Social Kit</button>
+      <button class="out-tab" data-panel="p-bundle" onclick="showPanel(this)">Bundles</button>
+    </div>
+    <div class="out-panel on" id="p-prompt"></div>
+    <div class="out-panel" id="p-neg"></div>
+    <div class="out-panel" id="p-grow"></div>
+    <div class="out-panel" id="p-products"></div>
+    <div class="out-panel" id="p-etsy"></div>
+    <div class="out-panel" id="p-social"></div>
+    <div class="out-panel" id="p-bundle"></div>
+    <div style="padding:10px 34px 34px;text-align:center;border-top:1px dashed var(--cream-deep)">
+      <p style="font-size:.85rem;color:var(--noir-soft);font-weight:300;margin:18px 0 14px">Finished with this character?</p>
+      <button class="btn-ghost" onclick="startNew()">↺ Reset All &amp; Start a New Character</button>
+    </div>
+  </div>
+</main>
+</div>
+<!-- ============ END GENERATOR ============ -->
+
+<footer>
+  <div class="f-logo">Sosa <span>Kidz</span>™ Generator</div>
+  <div class="f-tag">Little Imaginations. Big Dreams.</div>
+  <p>Part of the Sosa Dollz™ Ecosystem · © 2026 SosaDesigns4U · All Rights Reserved</p>
+</footer>
+
+<div class="toast" id="toast">Copied! ✿</div>
+
+<script>
+/* ================= DATA ================= */
+const OPTIONS = {
+  artStyle:["Sosa Signature Chibi","Premium Storybook","Soft 3D Collectible","Watercolor Nursery"],
+  branding:["SD Chest Logo","Mint Crown Doodle","Sosa Brand Colors","Corner Watermark"],
+  colorMood:["Natural Scene Colors","Sosa Brand Palette","Soft Pastels","Warm & Cozy","Bold & Bright","Neutral Cream"],
+  age:["Baby","Toddler","Preschool","Elementary","Tween"],
+  gender:["Girl","Boy","Neutral"],
+  skin:["Fair","Light","Medium","Olive","Tan","Caramel","Brown","Deep Brown","Rich Ebony"],
+  ethnicity:["African American","Afro-Latina","Latino","Caucasian","Asian","South Asian","Middle Eastern","Native American","Pacific Islander","Biracial","Multicultural"],
+  body:["Petite","Average","Chubby Cheeks Cutie","Tall for Age"],
+  hairTex:["Coily 4C","Curly","Wavy","Straight","Kinky Curly","Fine & Soft"],
+  hairColor:["Black","Dark Brown","Brown","Honey Brown","Auburn","Blonde","Strawberry Blonde","Red","Jet Black with Brown Highlights"],
+  hairStyle:["Afro Puffs","Box Braids with Beads","Cornrows","Two Puff Balls","Pigtails","Ponytail","Short Curls","Loose Curls","Bob Cut","Buzz Cut","Little Locs","Bantu Knots","Headband Style","Messy Toddler Hair"],
+  eyes:["Brown","Dark Brown","Hazel","Amber","Green","Blue","Gray"],
+  personality:["Curious","Creative","Brave","Gentle","Funny","Sweet","Adventurous","Confident","Shy","Bookworm","Tiny Chef","Little Artist","Future Doctor","Future Scientist","Gamer","Music Lover","Dancer","Animal Lover","Nature Explorer"],
+  outfit:["Everyday Outfit","Luxury Streetwear","School Uniform","Pajamas","Birthday Outfit","Holiday Outfit","Sports Uniform","Ballet Outfit","Karate Uniform","Princess Dress","Superhero Costume","Dinosaur Hoodie","Fairy Outfit","Animal Onesie","Raincoat","Winter Outfit"],
+  accessories:["Backpack","Lunchbox","Teddy Bear","Bunny Plush","Juice Box","Story Book","Coloring Book","Crayons","Soccer Ball","Basketball","Magic Wand","Flowers","Camera","Toy Car","Building Blocks","Ice Cream","Balloon","Tablet","Cozy Blanket"],
+  scene:["Nursery","Bedroom","Classroom","Playground","Park","Carnival","Library","Beach","Camping","Birthday Party","Pumpkin Patch","Christmas Morning","Easter Egg Hunt","Fantasy Forest","Treehouse","Art Studio","Coffee Shop with Mom","Grandparents' House","Space Adventure"],
+  pose:["Sitting","Standing","Walking","Jumping","Reading","Coloring","Hugging Teddy Bear","Holding Balloon","Running","Laughing","Sleeping","Waving","Playing","Looking Up in Wonder"],
+  camera:["Full Body","Three Quarter","Portrait","Close Up","Eye Level","Wide Scene","Top Down"],
+  bg:["White Studio","Minimal","Pastel","Nursery","Storybook","Watercolor","Seasonal","Luxury Studio","Whimsical"],
+  product:["Children's Book","Coloring Book","Sticker Sheet","Planner","Journal","Puzzle","Flash Cards","Alphabet Cards","Nursery Wall Art","Classroom Decor","T-Shirt","Tote Bag","Backpack Design","Invitation","Growth Chart","Plush Toy Concept","Gift Box"],
+  stages:["Baby","Toddler","Preschool","Elementary","Tween"]
+};
+
+/* Skin tone accuracy system — distinct descriptors + undertones so shades render true */
+const SKIN_MAP = {
+  "Fair":"very fair porcelain skin tone with soft cool pink undertones",
+  "Light":"light warm beige skin tone with neutral peach undertones",
+  "Medium":"true medium golden-beige skin tone, noticeably warmer and deeper than light skin",
+  "Olive":"distinct olive skin tone with green-gold undertones",
+  "Tan":"sun-kissed golden tan skin tone, clearly deeper than medium",
+  "Caramel":"rich warm caramel brown skin tone with golden honey undertones, unmistakably brown",
+  "Brown":"medium-deep warm brown skin tone with red-gold undertones, clearly darker than caramel",
+  "Deep Brown":"deep rich chocolate brown skin tone with warm mahogany undertones, beautifully deep complexion",
+  "Rich Ebony":"deep luminous ebony skin tone with glowing warm-cool undertones, the deepest richest complexion, radiant and beautiful"
+};
+
+const PERSONALITY_MAP = {
+  "Curious":"wide curious sparkling eyes, head tilted slightly with wonder",
+  "Creative":"joyful imaginative expression, playful spark in the eyes",
+  "Brave":"confident brave little smile, chin up, heroic stance",
+  "Gentle":"soft gentle smile, calm kind eyes, tender expression",
+  "Funny":"giggling cheeky grin, playful scrunched nose",
+  "Sweet":"sweet warm smile, rosy soft cheeks, loving expression",
+  "Adventurous":"excited adventurous grin, energetic sparkle in the eyes",
+  "Confident":"proud confident smile, hands on hips energy",
+  "Shy":"shy bashful smile, softly glancing sideways, cheeks blushing",
+  "Bookworm":"thoughtful cozy expression, dreamy studious eyes",
+  "Tiny Chef":"proud happy expression, playful chef energy",
+  "Little Artist":"focused creative expression, delighted artistic sparkle",
+  "Future Doctor":"caring proud smile, kind helpful expression",
+  "Future Scientist":"amazed fascinated expression, bright inquisitive eyes",
+  "Gamer":"focused playful grin, excited competitive sparkle",
+  "Music Lover":"blissful joyful expression, swaying happy energy",
+  "Dancer":"graceful joyful expression, light elegant energy",
+  "Animal Lover":"warm affectionate smile, gentle loving eyes",
+  "Nature Explorer":"wonder-filled expression, bright observant eyes"
+};
+
+const PRODUCT_MAP = {
+  "Children's Book":"illustrated children's picture book style, full scene composition with room for story text, consistent character design for a book series, warm inviting page layout",
+  "Coloring Book":"clean bold black outline line art only, no color, no shading, no gradients, pure white background, thick child-friendly coloring lines, simple clear shapes, coloring book page style",
+  "Sticker Sheet":"die-cut sticker style, thick white sticker border outline, isolated on plain background, bold clean edges, kawaii sticker aesthetic, vibrant saturated colors",
+  "Planner":"decorative planner clipart style, isolated on transparent-style plain background, small charming spot illustration, clean edges for digital planner use",
+  "Journal":"soft journal cover illustration, dreamy decorative composition with space for a title, cozy stationery aesthetic",
+  "Puzzle":"rich full-scene composition with lots of delightful details to discover, edge-to-edge artwork, vibrant balanced colors ideal for a jigsaw puzzle",
+  "Flash Cards":"simple bold centered composition, plain soft background, clear uncluttered educational flash card style, high readability for young learners",
+  "Alphabet Cards":"centered character composition with space for a large letter, clean educational layout, plain pastel background, alphabet learning card style",
+  "Nursery Wall Art":"soft dreamy nursery art print style, gentle pastel palette, calming composition, framable premium wall art with breathing room",
+  "Classroom Decor":"bright cheerful educational poster style, welcoming classroom-friendly composition, clear and uplifting",
+  "T-Shirt":"bold graphic composition isolated on plain background, high contrast, print-ready t-shirt design style, no background scene",
+  "Tote Bag":"charming centered graphic isolated on plain background, screen-print friendly bold design, tote bag print style",
+  "Backpack Design":"playful repeatable motif style, bold simple shapes, fabric print friendly design",
+  "Invitation":"celebratory decorative composition with space for party text, festive premium invitation style",
+  "Growth Chart":"tall vertical composition, standing full body pose, growth chart design with vertical space for measurement markings",
+  "Plush Toy Concept":"plush toy product concept render, soft huggable simplified shapes, rounded stuffed toy proportions, toy design sheet aesthetic",
+  "Gift Box":"decorative gift packaging illustration style, charming repeatable design, premium gift box aesthetic"
+};
+
+const COLLECTIONS = {
+  "Sosa Squad":{outfit:"Luxury Streetwear",scene:null,accessories:[],personality:["Confident","Funny"],bg:"White Studio",artStyle:"Sosa Signature Chibi",branding:["SD Chest Logo","Mint Crown Doodle"],duo:true,kw:"matching bestie squad streetwear"},
+  "Back to School":{outfit:"School Uniform",scene:"Classroom",accessories:["Backpack","Lunchbox"],personality:["Curious","Bookworm"],bg:"Storybook",kw:"back to school"},
+  "Christmas":{outfit:"Holiday Outfit",scene:"Christmas Morning",accessories:["Teddy Bear"],personality:["Sweet"],bg:"Seasonal",kw:"Christmas holiday"},
+  "Halloween":{outfit:"Superhero Costume",scene:"Pumpkin Patch",accessories:["Balloon"],personality:["Brave","Funny"],bg:"Seasonal",kw:"Halloween fall"},
+  "Summer Fun":{outfit:"Everyday Outfit",scene:"Beach",accessories:["Ice Cream"],personality:["Adventurous","Funny"],bg:"Pastel",kw:"summer beach"},
+  "Animal Friends":{outfit:"Animal Onesie",scene:"Fantasy Forest",accessories:["Bunny Plush"],personality:["Animal Lover","Gentle"],bg:"Whimsical",kw:"animal friends"},
+  "Fairy Tale":{outfit:"Princess Dress",scene:"Fantasy Forest",accessories:["Magic Wand"],personality:["Sweet","Brave"],bg:"Storybook",kw:"fairy tale princess"},
+  "Space Adventure":{outfit:"Superhero Costume",scene:"Space Adventure",accessories:["Balloon"],personality:["Adventurous","Future Scientist"],bg:"Whimsical",kw:"space adventure"},
+  "Around the World":{outfit:"Everyday Outfit",scene:"Park",accessories:["Camera"],personality:["Curious","Nature Explorer"],bg:"Watercolor",kw:"world travel culture"},
+  "Career Dreams":{outfit:"Everyday Outfit",scene:"Classroom",accessories:["Story Book"],personality:["Future Doctor","Confident"],bg:"Minimal",kw:"career dreams"},
+  "Sports Collection":{outfit:"Sports Uniform",scene:"Playground",accessories:["Soccer Ball"],personality:["Confident","Adventurous"],bg:"Minimal",kw:"sports kids"},
+  "Family Collection":{outfit:"Everyday Outfit",scene:"Grandparents' House",accessories:["Cozy Blanket"],personality:["Sweet","Gentle"],bg:"Storybook",kw:"family love"},
+  "Best Friends":{outfit:"Everyday Outfit",scene:"Treehouse",accessories:["Balloon"],personality:["Funny","Sweet"],bg:"Pastel",kw:"best friends"},
+  "Twins":{outfit:"Everyday Outfit",scene:"Bedroom",accessories:["Teddy Bear"],personality:["Funny","Sweet"],bg:"Pastel",kw:"twins siblings"},
+  "Siblings":{outfit:"Pajamas",scene:"Bedroom",accessories:["Story Book"],personality:["Gentle","Funny"],bg:"Nursery",kw:"siblings family"}
+};
+
+const STYLE_BLOCK = "premium storybook illustration, soft 3D rendering blended with digital painting, collectible vinyl toy inspiration, luxury children's book illustration, soft painterly textures, warm cinematic studio lighting, ultra-detailed fabric textures, boutique children's brand aesthetic";
+
+/* Sosa Signature Style Lock™ — appended to every full-color prompt */
+const STYLE_LOCK = "premium boutique children's illustration, luxury toy catalog quality, wholesome storybook charm, soft cozy color harmony, heartwarming emotional storytelling, high-end nursery brand aesthetic, timeless children's illustration, award-winning picture book artwork, classic animation-studio warmth, premium collectible character design";
+
+/* Art style system — Sosa Signature Chibi is the brand default */
+const STYLE_MAP = {
+  "Sosa Signature Chibi":{
+    block:"premium chibi character illustration in the signature Sosa Dollz style, clean 2D digital illustration with smooth confident linework, soft cel shading with a matte finish, oversized glossy expressive eyes with bright catchlights, richly detailed textured hair with individually defined curls and coils, luxury kids streetwear aesthetic, chunky designer-style sneakers, collectible sticker-art quality, urban-cute boutique brand style",
+    skin:"smooth matte skin with a soft natural blush",
+    quality:"ultra detailed, high resolution, professional illustration, crisp clean edges, sharp focus, premium rendering, flawless smooth finish, commercial sticker and clipart quality"
+  },
+  "Premium Storybook":{
+    block:"premium storybook illustration, soft 3D rendering blended with digital painting, collectible vinyl toy inspiration, luxury children's book illustration, soft painterly textures, warm cinematic studio lighting, ultra-detailed fabric textures, boutique children's brand aesthetic",
+    skin:"matte painterly skin texture",
+    quality:"ultra detailed, 8K, high resolution, professional illustration, children's book quality, studio lighting, sharp focus, premium rendering, painterly finish, commercial quality"
+  },
+  "Soft 3D Collectible":{
+    block:"soft 3D rendered collectible vinyl toy style, smooth rounded sculpted forms, matte designer-toy finish, gentle subsurface glow, luxury toy photography studio lighting, boutique collectible brand aesthetic",
+    skin:"smooth matte vinyl-soft skin",
+    quality:"ultra detailed, 8K, high resolution, professional 3D render, studio lighting, sharp focus, premium rendering, commercial toy catalog quality"
+  },
+  "Watercolor Nursery":{
+    block:"soft watercolor children's illustration, gentle blended washes, delicate fine linework, dreamy pastel harmony, airy negative space, premium nursery art aesthetic",
+    skin:"soft luminous watercolor skin tones",
+    quality:"high resolution, professional illustration, gallery-quality watercolor finish, sharp focus where it matters, premium printable nursery art quality"
+  }
+};
+function currentStyle(){return STYLE_MAP[state.single.artStyle]||STYLE_MAP["Sosa Signature Chibi"]}
+
+/* Color mood system — controls the palette so sage/mint doesn't dominate every image */
+const COLOR_MAP = {
+  "Natural Scene Colors":"Color palette: natural, true-to-life colors that suit the scene, outfit and season — varied and balanced, not limited to any single color family.",
+  "Sosa Brand Palette":"Color palette: the signature Sosa palette of cream, blush rose, sage teal, mint, cognac gold and noir woven through the outfit and scene.",
+  "Soft Pastels":"Color palette: soft dreamy pastels — baby pink, powder blue, lavender, buttercream yellow and gentle peach — light and airy.",
+  "Warm & Cozy":"Color palette: warm cozy tones — terracotta, honey gold, cinnamon, rust, cream and soft warm browns — like autumn firelight.",
+  "Bold & Bright":"Color palette: joyful bold brights — sunshine yellow, coral, turquoise, cherry red and playful primary pops — energetic and fun.",
+  "Neutral Cream":"Color palette: elegant neutrals — cream, ivory, taupe, soft beige and warm white with delicate gold accents."
+};
+
+const BRANDING_MAP = {
+  "SD Chest Logo":"Their outfit features exactly ONE small embroidered \"SD\" chest logo — this is the only branding in the entire image. No logos, lettering, or brand text appear anywhere else: not on the sneakers, not on props, not on background objects or signage.",
+  "Mint Crown Doodle":"A playful hand-drawn mint-green crown doodle floats just above their head.",
+  "Sosa Brand Colors":"Subtle Sosa brand accents of sage, mint and cognac gold appear in small details only — a hair bow, a sneaker stripe, a small prop — while the rest of the palette stays varied.",
+  "Corner Watermark":"A small, subtle \"Sosa Dollz\" script watermark sits discreetly in one bottom corner of the image — elegant, semi-transparent, and unobtrusive. It is the only text element in that corner and does not repeat anywhere else."
+};
+
+const QUALITY_BLOCK = "ultra detailed, 8K, high resolution, professional illustration, children's book quality, studio lighting, sharp focus, premium rendering, painterly finish, commercial quality";
+
+/* Products that need the character isolated (no environment) */
+const ISOLATED = ["T-Shirt","Tote Bag","Sticker Sheet","Planner","Backpack Design","Plush Toy Concept","Gift Box","Flash Cards","Alphabet Cards","Growth Chart","Invitation"];
+
+const NEG_BASE = "no extra fingers, no extra limbs, no duplicate body parts, no distorted anatomy, no deformed face, no creepy eyes, no horror, no scary expressions, no adult body proportions, no oversized lips, no mature facial features, no exaggerated muscles, no poorly drawn hands, no crossed eyes, no asymmetrical eyes, no blurry rendering, no low quality, no noisy image, no pixelation, no props cut off, no cropped hands, no cropped feet, no plastic skin, no wax skin, no uncanny features, no uncanny valley";
+
+function promptMode(){
+  const p=state.single.product;
+  if(!p) return "scene";
+  if(p==="Coloring Book") return "lineart";
+  return ISOLATED.includes(p) ? "isolated" : "scene";
+}
+
+function buildNegative(){
+  const mode=promptMode();
+  const b=state.multi.branding;
+  const hasLogo=b.includes("SD Chest Logo");
+  const hasWm=b.includes("Corner Watermark");
+  let n=NEG_BASE;
+  /* skin tone protection */
+  n+=", no washed-out skin tone, no altered skin tone";
+  const deep=["Caramel","Brown","Deep Brown","Rich Ebony"];
+  if(deep.includes(state.single.skin)) n+=", no skin lightening, no pale complexion, no lightened or bleached skin, no gray ashy skin";
+  /* branding-aware text & logo rules */
+  if(hasLogo){
+    n+=", no repeated logos, no duplicate brand marks, no logos on sneakers, no logos on shoes, no brand text on clothing besides the single chest logo, no logos on props or background objects, no signage text, no banner text";
+  } else {
+    n+=", no logo, no brand marks";
+  }
+  if(!hasWm) n+=", no watermark, no signature";
+  if(!hasLogo && !hasWm) n+=", no text, no lettering";
+  else n+=", no random text, no gibberish lettering";
+  if(mode==="isolated") n+=", no background scene, no environmental elements";
+  if(mode==="lineart") n+=", no color, no shading, no gradients, no grayscale fills, no background clutter";
+  return n;
+}
+
+/* ================= STATE ================= */
+function goTo(sel){
+  const t=document.querySelector(sel);
+  if(!t)return;
+  if(t.classList.contains('step-card')){
+    t.classList.add('open');
+    t.classList.remove('flash');
+    void t.offsetWidth; /* restart animation */
+    t.classList.add('flash');
+    setTimeout(()=>t.classList.remove('flash'),1700);
+  }
+  t.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function enterGen(sel){
+  document.getElementById('landingView').style.display='none';
+  document.getElementById('generatorView').style.display='block';
+  window.scrollTo({top:0,behavior:'auto'});
+  if(sel)setTimeout(()=>goTo(sel),80);
+}
+function showLanding(){
+  document.getElementById('generatorView').style.display='none';
+  document.getElementById('landingView').style.display='block';
+  window.scrollTo({top:0,behavior:'auto'});
+}
+let state = { multi:{personality:[],accessories:[],stages:[],branding:[]}, single:{}, collection:null };
+
+/* ================= BUILD CHIPS ================= */
+document.querySelectorAll('.chips').forEach(box=>{
+  const g = box.dataset.group;
+  const multi = box.dataset.multi ? parseInt(box.dataset.multi) : 0;
+  OPTIONS[g].forEach(opt=>{
+    const c = document.createElement('button');
+    c.className='chip'; c.type='button'; c.textContent=opt;
+    c.onclick=()=>{
+      if(multi){
+        const arr = state.multi[g];
+        const i = arr.indexOf(opt);
+        if(i>-1){arr.splice(i,1);c.classList.remove('on','alt');}
+        else if(arr.length<multi){arr.push(opt);c.classList.add('on','alt');}
+      } else {
+        if(state.single[g]===opt){state.single[g]=null;c.classList.remove('on');}
+        else{
+          state.single[g]=opt;
+          box.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+          c.classList.add('on');
+        }
+      }
+      update();
+    };
+    box.appendChild(c);
+  });
+});
+
+/* ================= COLLECTIONS ================= */
+const presetRow = document.getElementById('presetRow');
+Object.keys(COLLECTIONS).forEach(name=>{
+  const b=document.createElement('button');
+  b.className='preset'; b.type='button'; b.textContent=name;
+  b.onclick=()=>{
+    if(state.collection===name){state.collection=null;b.classList.remove('on');update();return;}
+    state.collection=name;
+    presetRow.querySelectorAll('.preset').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    applyCollection(COLLECTIONS[name]);
+  };
+  presetRow.appendChild(b);
+});
+
+function setChip(group,value){
+  state.single[group]=value;
+  const box=document.querySelector(`.chips[data-group="${group}"]`);
+  if(!box)return;
+  box.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.textContent===value));
+}
+function setMulti(group,values){
+  state.multi[group]=[...values];
+  const box=document.querySelector(`.chips[data-group="${group}"]`);
+  if(!box)return;
+  box.querySelectorAll('.chip').forEach(c=>{
+    const on = values.includes(c.textContent);
+    c.classList.toggle('on',on); c.classList.toggle('alt',on);
+  });
+}
+function applyCollection(c){
+  setChip('outfit',c.outfit); setChip('scene',c.scene||null); setChip('bg',c.bg);
+  setMulti('accessories',c.accessories); setMulti('personality',c.personality);
+  if(c.artStyle)setChip('artStyle',c.artStyle);
+  if(c.branding)setMulti('branding',c.branding);
+  update();
+}
+
+/* ================= PROMPT ENGINE (V1.1 — conflict-aware, paragraph structure) ================= */
+function cap(t){return t.charAt(0).toUpperCase()+t.slice(1)}
+
+function buildFullPrompt(overrideAge){
+  const s=state.single, m=state.multi;
+  const name=document.getElementById('charName').value.trim();
+  const mode=promptMode();
+  const age=(overrideAge||s.age||"preschool").toLowerCase();
+  const genderWord=s.gender==="Girl"?"girl":s.gender==="Boy"?"boy":"child";
+  const paras=[];
+
+  /* ¶1 — Identity & face */
+  let p1=`An adorable ${age}-age ${s.ethnicity?s.ethnicity+" ":""}${genderWord}${name?" named "+name:""}`;
+  if(s.skin)p1+=`, ${SKIN_MAP[s.skin]||s.skin.toLowerCase()+" skin tone"}, skin tone rendered accurately and consistently`;
+  if(s.body)p1+=s.body==="Chubby Cheeks Cutie"?", adorably chubby cheeks":`, ${s.body.toLowerCase()} child build`;
+  p1+=", large toddler-inspired head proportions, soft rounded cheeks";
+  p1+=`, expressive oversized sparkling ${s.eyes?s.eyes.toLowerCase()+" ":""}eyes`;
+  if(m.personality.length)p1+=` with ${PERSONALITY_MAP[m.personality[0]]}`;
+  p1+=`, small button nose, soft natural lips, ${currentStyle().skin}.`;
+  paras.push(p1);
+
+  /* ¶2 — Hair & personality */
+  const p2=[];
+  const hair=[];
+  if(s.hairTex)hair.push(s.hairTex.toLowerCase());
+  if(s.hairColor)hair.push(s.hairColor.toLowerCase());
+  if(hair.length||s.hairStyle){
+    p2.push(`Hair is natural ${hair.join(" ")} hair${s.hairStyle?" styled in "+s.hairStyle.toLowerCase():""}, rendered with soft beautiful detail.`.replace("natural  ","natural "));
+  }
+  if(m.personality.length){
+    const extras=m.personality.slice(1).map(x=>PERSONALITY_MAP[x]).join(", ");
+    p2.push(`Personality radiates ${m.personality.map(x=>x.toLowerCase()).join(", ")}, shown through ${extras||"warm expressive body language"} and playful, heartwarming energy.`);
+  }
+  if(p2.length)paras.push(p2.join(" "));
+
+  /* ¶3 — Outfit, accessories, pose */
+  const p3=[];
+  if(s.outfit)p3.push(`Wearing an adorable ${s.outfit.toLowerCase()} in a warm storybook-inspired color palette with charming fabric details.`);
+  if(m.accessories.length)p3.push(`Featuring ${m.accessories.map(a=>"a "+a.toLowerCase()).join(" and ")} as sweet supporting details.`);
+  if(s.pose)p3.push(`Captured in a ${s.pose.toLowerCase()} pose full of life and charm.`);
+  m.branding.forEach(b=>{if(BRANDING_MAP[b])p3.push(BRANDING_MAP[b])});
+  if(p3.length)paras.push(p3.join(" "));
+
+  /* ¶3.5 — Duo mode (Sosa Squad & matching sets) */
+  if(state.collection && COLLECTIONS[state.collection] && COLLECTIONS[state.collection].duo){
+    paras.push("A matching duo design: two best-friend characters side by side in coordinated streetwear — one in a noir hoodie and one in a sage hoodie, both with matching mint, teal and cream designer-style sneakers — clearly the same squad, rendered in the same identical art style, sitting and posing with relaxed confident best-friend energy.");
+  }
+
+  /* ¶4 — Scene / theme (conflict-aware) */
+  if(s.scene){
+    if(mode==="isolated"){
+      paras.push(`The overall design evokes the cozy feeling of a ${s.scene.toLowerCase()} adventure through styling, colors and accessories, while the character remains fully isolated for merchandise use.`);
+    } else if(mode==="lineart"){
+      paras.push(`Set in a simple, clearly outlined ${s.scene.toLowerCase()} scene with clean uncluttered shapes that are easy and fun to color.`);
+    } else {
+      paras.push(`Set in a cozy ${s.scene.toLowerCase()} scene with a ${s.bg?s.bg.toLowerCase():"storybook"} background style, rich with warm inviting details.`);
+    }
+  } else if(s.bg && mode==="scene"){
+    paras.push(`Presented against a ${s.bg.toLowerCase()} style background.`);
+  }
+
+  /* ¶4.5 — Color mood */
+  if(mode!=="lineart"){
+    const cm=s.colorMood||"Natural Scene Colors";
+    if(COLOR_MAP[cm])paras.push(COLOR_MAP[cm]);
+  }
+
+  /* ¶5 — Composition */
+  const comp=[];
+  if(s.camera)comp.push(`${s.camera.toLowerCase()} shot`);
+  if(mode==="isolated"){
+    comp.push("bold centered composition, full character visible, perfect print-friendly framing, isolated on a clean plain background with no environmental elements");
+  } else if(mode==="lineart"){
+    comp.push("balanced coloring-page composition with generous white space, full subject visible, nothing cropped");
+  } else {
+    comp.push("perfectly balanced framing, full subject visible, nothing cropped");
+  }
+  paras.push(cap(comp.join(", "))+".");
+
+  /* ¶6 — Product optimization */
+  if(s.product&&PRODUCT_MAP[s.product])paras.push(cap(PRODUCT_MAP[s.product])+".");
+
+  /* ¶7 + ¶8 — Style Lock & quality */
+  if(mode==="lineart"){
+    paras.push("Clean professional coloring book line art, bold smooth black outlines, consistent child-friendly line weight, pure white background, wholesome storybook charm, timeless children's illustration, premium collectible character design.");
+    paras.push("Ultra detailed crisp linework, high resolution, professional illustration, children's book quality, sharp focus, print-ready commercial quality.");
+  } else {
+    const st=currentStyle();
+    paras.push(cap(st.block)+", "+STYLE_LOCK+".");
+    paras.push(cap(st.quality)+".");
+  }
+  return paras.join("\n\n");
+}
+
+/* ================= LIVE PREVIEW ================= */
+function update(){
+  const prev=document.getElementById('preview');
+  const s=state.single,m=state.multi;
+  const any=Object.values(s).some(Boolean)||m.personality.length||m.accessories.length||m.branding.length||document.getElementById('charName').value.trim();
+  prev.innerHTML = any ? buildFullPrompt() : '<span class="placeholder">Once upon a time… your character prompt will appear on this page as you build. ✿</span>';
+  const meta=document.getElementById('metaTags'); meta.innerHTML='';
+  const tags=[];
+  tags.push('✎ '+(s.artStyle||'Sosa Signature Chibi'));
+  if(state.collection)tags.push('✦ '+state.collection);
+  if(s.age)tags.push(s.age);
+  if(s.product)tags.push('★ '+s.product);
+  m.stages.forEach(st=>tags.push('❀ '+st));
+  tags.slice(0,6).forEach(t=>{const el=document.createElement('span');el.className='sb-tag';el.textContent=t;meta.appendChild(el);});
+}
+
+/* ================= HELPERS ================= */
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function block(title,text,btnLabel){
+  const id='c'+Math.random().toString(36).slice(2,8);
+  return `<div class="copy-block"><h4>${title}</h4><button class="copy-btn" onclick="copyText('${id}',this)">${btnLabel||'Copy'}</button><span id="${id}">${text}</span></div>`;
+}
+function copyText(id,btn){
+  const t=document.getElementById(id).innerText;
+  const done=()=>{
+    btn.classList.add('done');btn.textContent='Copied ✓';
+    const toast=document.getElementById('toast');toast.classList.add('show');
+    setTimeout(()=>{btn.classList.remove('done');btn.textContent='Copy';toast.classList.remove('show')},1600);
+  };
+  const fallback=()=>{
+    const ta=document.createElement('textarea');
+    ta.value=t;
+    ta.setAttribute('readonly','');
+    ta.style.position='fixed';ta.style.top='-9999px';ta.style.opacity='0';
+    document.body.appendChild(ta);
+    ta.focus();ta.select();ta.setSelectionRange(0,t.length);
+    let ok=false;
+    try{ok=document.execCommand('copy')}catch(e){}
+    document.body.removeChild(ta);
+    if(ok){done()}
+    else{
+      /* last resort: select the text so the user can copy manually */
+      const range=document.createRange();
+      range.selectNodeContents(document.getElementById(id));
+      const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);
+      btn.textContent='Press Ctrl+C';
+      setTimeout(()=>{btn.textContent='Copy'},2500);
+    }
+  };
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(t).then(done).catch(fallback);
+  } else {
+    fallback();
+  }
+}
+function showPanel(tab){
+  document.querySelectorAll('.out-tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.out-panel').forEach(p=>p.classList.remove('on'));
+  tab.classList.add('on');
+  document.getElementById(tab.dataset.panel).classList.add('on');
+}
+function toggleStep(head){head.parentElement.classList.toggle('open')}
+
+/* ================= GENERATE ================= */
+function generate(){
+  const s=state.single,m=state.multi;
+  const name=document.getElementById('charName').value.trim()||"Your Sosa Kid";
+  const theme=state.collection?state.collection:(s.scene||"Storybook");
+  const kw=state.collection?COLLECTIONS[state.collection].kw:(s.scene||"kids").toLowerCase();
+  const product=s.product||"Digital Product";
+  const prompt=buildFullPrompt();
+
+  /* PROMPT PANEL */
+  document.getElementById('p-prompt').innerHTML =
+    block('✿ Master Image Prompt',prompt)+
+    `<p style="font-size:.84rem;color:var(--noir-soft);font-weight:300">Paste into Midjourney, DALL·E, Leonardo, Ideogram, or your favorite AI image tool. Pair with the negative prompt for the cleanest results.</p>
+    <div style="margin-top:14px;background:var(--blush-soft);border:1.5px solid var(--blush);border-radius:14px;padding:15px 20px;font-size:.86rem;color:var(--noir)">
+      <b style="color:var(--blush-deep)">✨ Pro Tip:</b> Want to take this even further? Drop this prompt into the <b>Anything But Ordinary™ Creative Director</b> GPT to elevate the concept, spin it into a full product collection, or build a luxury brand around your character. Generator + Director = your complete creative studio.
+    </div>`;
+
+  /* NEGATIVE PANEL */
+  const negMode=promptMode();
+  const negNote=negMode==="isolated"
+    ? "Product-aware: since you're creating an isolated product, <b>no background scene</b> and <b>no environmental elements</b> were added automatically."
+    : negMode==="lineart"
+    ? "Product-aware: Coloring Book mode automatically added <b>no color, no shading, no gradients</b> for clean line art."
+    : "This safety layer keeps every Sosa Kidz™ character adorable — never creepy, distorted, or off-brand. Scene-based products keep backgrounds allowed.";
+  document.getElementById('p-neg').innerHTML =
+    block('Smart Negative Prompt',buildNegative())+
+    `<p style="font-size:.84rem;color:var(--noir-soft);font-weight:300">${negNote}</p>`;
+
+  /* GROWING UP PANEL */
+  let growHTML='';
+  if(m.stages.length){
+    growHTML=`<div class="growup-note">❀ Growing Up™ Mode — ${m.stages.length} stage${m.stages.length>1?'s':''} selected. Each prompt locks facial consistency so ${name} stays recognizable at every age.</div>`;
+    m.stages.forEach(st=>{
+      const gp="CONSISTENT CHARACTER SERIES — same exact character across all images, identical facial features, same eye shape and color, same skin tone, same signature hairstyle adapted to age, recognizable as the same child: "+buildFullPrompt(st);
+      growHTML+=block('❀ '+st+' Stage',gp);
+    });
+  } else {
+    growHTML=`<div class="growup-note">Select stages in the Growing Up™ step to generate consistency-locked prompts for the same character from baby to tween — perfect for growth charts, milestone books &amp; keepsakes.</div>`;
+  }
+  document.getElementById('p-grow').innerHTML=growHTML;
+
+  /* PRODUCT IDEAS */
+  const ideas=[
+    ["Coloring Book","20-page '"+theme+"' coloring book for KDP or Etsy digital download"],
+    ["Sticker Sheet","Die-cut sticker pack featuring "+name+" in 8 poses"],
+    ["Nursery Wall Art","3-piece printable art set in soft pastels"],
+    ["Children's Book","Picture book starring "+name+" — '"+theme+" Adventures'"],
+    ["Growth Chart","Personalized printable growth chart, baby to tween"],
+    ["Flash Cards","Alphabet or number cards with "+name+" as the learning buddy"],
+    ["Birthday Kit","Matching invitations, cupcake toppers & thank-you tags"],
+    ["Planner Clipart","Digital planner sticker bundle for GoodNotes sellers"],
+    ["T-Shirt Line","'"+theme+"' tee designs for print-on-demand"],
+    ["Plush Concept","Huggable plush toy design sheet for manufacturing pitches"],
+    ["Classroom Pack","Welcome posters, name tags & reward charts for teachers"],
+    ["Puzzle","48-piece kids' jigsaw with a detail-rich "+ (s.scene||"storybook").toLowerCase() +" scene"]
+  ];
+  document.getElementById('p-products').innerHTML =
+    `<div class="idea-grid">${ideas.map(i=>`<div class="idea"><b>${i[0]}</b><span>${i[1]}</span></div>`).join('')}</div>`;
+
+  /* ETSY SEO */
+  const seoTitle=`${theme} Kids Clipart | Cute ${s.gender||'Children'}'s ${product} | Printable Digital Download | Nursery Decor | Sosa Kidz Style Character Art`;
+  const seoTags=`${kw} clipart, kids ${product.toLowerCase()}, cute children clipart, printable nursery art, digital download, ${(s.ethnicity||'diverse').toLowerCase()} kids art, storybook illustration, KDP graphics, sublimation design, kids png, boutique clipart, commercial use, ${(s.age||'toddler').toLowerCase()} art`;
+  const seoDesc=`Meet ${name} — an adorable, storybook-quality character from our premium ${theme} collection! ✿\n\nPerfect for: ${product.toLowerCase()}s, nursery decor, party supplies, classroom resources, print-on-demand products & more.\n\n♡ WHAT YOU GET\n• High-resolution premium character artwork\n• Boutique children's brand aesthetic\n• Commercial-ready quality\n\n♡ PERFECT FOR\nEtsy sellers, teachers, KDP publishers, party planners, nursery decorators & creative mamas.\n\nLittle Imaginations. Big Dreams. ✿ Sosa Kidz™`;
+  document.getElementById('p-etsy').innerHTML =
+    block('SEO Title',seoTitle)+block('Tags & Keywords',seoTags)+block('Product Description',seoDesc);
+
+  /* SOCIAL KIT */
+  const tiktok=`POV: you needed the CUTEST ${theme.toLowerCase()} character for your next product drop 🥹✿ Meet ${name}! Made with the Sosa Kidz™ Generator — prompt to product in minutes. Who's adding this to their shop?? 👇 #aiart #etsyseller #digitalproducts #kidsclipart #printondemand #sosakidz`;
+  const insta=`Say hello to ${name} ✿🤎\n\nOur newest Sosa Kidz™ ${theme} character — storybook cheeks, big dreams, and 100% ready for your product line.\n\nColoring books, stickers, nursery art, party kits… one character, endless products. That's the Prompt-to-Product way. ✨\n\nDrop a ✿ if you'd buy this for your little one!\n\n#SosaKidz #KidsIllustration #EtsySeller #DigitalDownload #NurseryDecor #KDP #AIArtCommunity #PrintOnDemand #CreativeEntrepreneur`;
+  const pin=`Adorable ${theme} children's character art — premium storybook-style illustration perfect for coloring books, nursery wall art, stickers, KDP books & print-on-demand products. Created with the Sosa Kidz™ Generator. Little Imaginations. Big Dreams. | kids clipart, ${kw}, digital download, children's book illustration`;
+  const fb=`✿ NEW CHARACTER DROP ✿\n\nMeet ${name} from our ${theme} collection! This little cutie was designed with the Sosa Kidz™ Generator — our Prompt-to-Product system that takes you from idea to sellable product in minutes.\n\nPerfect for Etsy shops, KDP books, classroom resources & more. Comment "KIDZ" and I'll send you the details! 🤎`;
+  document.getElementById('p-social').innerHTML =
+    block('TikTok Caption',tiktok)+block('Instagram Caption',insta)+block('Pinterest Description',pin)+block('Facebook Caption',fb);
+
+  /* BUNDLES */
+  const bundles=[
+    ["Best Friend Character","Generate a matching bestie with complementary outfit colors for a 'Best Friends' duo pack"],
+    ["Sibling Set","Create 2–3 siblings using the same style settings for a Family Collection"],
+    ["Pet Companion","Add a Sosa Petz™ buddy — a puppy, kitten, or bunny in the same painterly style"],
+    ["Seasonal Backgrounds","4 matching backgrounds: "+(s.bg||"pastel")+" in spring, summer, fall & winter"],
+    ["Pattern Pack","Seamless repeat pattern using "+(m.accessories[0]||"balloons").toLowerCase()+" & stars in brand colors"],
+    ["Sticker Expansion","8 emotion poses of "+name+": happy, sleepy, excited, silly, proud, shy, surprised, cozy"],
+    ["Alphabet Series","26 letter cards featuring "+name+" with themed objects A–Z"],
+    ["Growing Up™ Keepsake","Full baby-to-tween milestone set for growth charts & memory books"],
+    ["Party Bundle","Invitation + banner + cupcake toppers + favor tags in one matching kit"],
+    ["Companion Products","Pair the "+product.toLowerCase()+" with a matching journal, tote & print for a premium bundle"]
+  ];
+  document.getElementById('p-bundle').innerHTML =
+    `<div class="idea-grid">${bundles.map(i=>`<div class="idea"><b>${i[0]}</b><span>${i[1]}</span></div>`).join('')}</div>`;
+
+  const out=document.getElementById('output');
+  out.classList.add('show');
+  document.querySelector('.out-tab').click();
+  out.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ================= SURPRISE & RESET ================= */
+function surprise(){
+  ['age','gender','skin','ethnicity','body','hairTex','hairColor','hairStyle','eyes','outfit','scene','pose','camera','bg'].forEach(g=>setChip(g,pick(OPTIONS[g])));
+  setMulti('personality',[pick(OPTIONS.personality),pick(OPTIONS.personality)].filter((v,i,a)=>a.indexOf(v)===i));
+  setMulti('accessories',[pick(OPTIONS.accessories)]);
+  update();
+}
+function resetAll(){
+  state={multi:{personality:[],accessories:[],stages:[],branding:[]},single:{},collection:null};
+  document.getElementById('charName').value='';
+  document.querySelectorAll('.chip,.preset').forEach(c=>c.classList.remove('on','alt'));
+  document.getElementById('output').classList.remove('show');
+  setChip('artStyle','Sosa Signature Chibi');
+  setChip('colorMood','Natural Scene Colors');
+  update();
+}
+function startNew(){
+  resetAll();
+  goTo('#start-building');
+}
+
+/* Smooth-scroll all in-page links (fixes sandboxed preview navigation) */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+
+setChip('artStyle','Sosa Signature Chibi');
+setChip('colorMood','Natural Scene Colors');
+update();
+</script>
+</body>
+</html>
