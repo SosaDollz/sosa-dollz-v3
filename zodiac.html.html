@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sosa Dollz — Zodiac Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Landing page styles ===== */
+
+  :root{
+    --champagne:#FAF0EC; --champagne-2:#F3E4DC;
+    --blush:#E8B4BC; --blush-deep:#C98A93;
+    --sage:#7FA69C; --cognac:#B9895A; --cognac-deep:#8A6535;
+    --ink:#2A211D; --ink-dim:#7A6B62;
+    --mint:#B7D9CC; --noir:#1C1815;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    background:
+      radial-gradient(ellipse 700px 420px at 12% -6%, rgba(232,180,188,0.35), transparent 60%),
+      radial-gradient(ellipse 800px 500px at 100% 10%, rgba(183,217,204,0.30), transparent 55%),
+      linear-gradient(160deg, var(--champagne), var(--champagne-2) 60%, #EFEAE0);
+    font-family:'Jost', sans-serif; color:var(--ink); min-height:100vh; padding:44px 20px 70px;
+  }
+  .wrap{max-width:760px; margin:0 auto;}
+
+  header{text-align:center; margin-bottom:34px;}
+  .eyebrow{letter-spacing:0.35em; text-transform:uppercase; font-size:11px; color:var(--cognac-deep); font-weight:600; margin-bottom:18px;}
+  .eyebrow span{opacity:0.6;}
+  .crown{font-size:26px; margin-bottom:6px;}
+  h1{font-family:'Playfair Display', serif; font-weight:800; font-size:clamp(38px,8vw,58px); letter-spacing:-0.01em; line-height:1;}
+  h1 .dark{color:var(--ink);}
+  h1 .gold{background:linear-gradient(100deg, var(--cognac), var(--blush-deep) 60%, var(--cognac-deep)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .version{font-size:11px; letter-spacing:0.3em; color:var(--ink-dim); margin-top:8px;}
+  .tagline{font-family:'Playfair Display', serif; font-style:italic; font-weight:600; font-size:22px; color:var(--cognac-deep); margin-top:14px;}
+  .subtitle{font-size:14px; color:var(--ink-dim); margin-top:6px;}
+
+  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:30px 0 22px;}
+  .stat{
+    background:rgba(255,255,255,0.55); border:1px solid rgba(185,137,90,0.2); border-radius:14px;
+    padding:16px 8px; text-align:center;
+  }
+  .stat .num{font-family:'Playfair Display', serif; font-weight:700; font-size:24px; color:var(--cognac-deep);}
+  .stat .label{font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-dim); margin-top:4px;}
+
+  .lp-cta{
+    display:block; text-align:center; text-decoration:none;
+    background:var(--noir); color:#fff; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+    font-size:14px; padding:18px 24px; border-radius:16px; margin-bottom:10px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .lp-cta:hover{transform:translateY(-1px); box-shadow:0 10px 26px rgba(28,24,21,0.25);}
+  .lp-cta span{opacity:0.55; margin:0 8px;}
+  .lp-cta-note{text-align:center; font-size:11.5px; color:var(--ink-dim); margin-bottom:34px;}
+
+  .lp-panel{
+    background:rgba(255,255,255,0.5); border:1px solid rgba(185,137,90,0.2); border-radius:18px;
+    padding:22px; margin-bottom:16px;
+  }
+  .lp-panel h2{
+    text-align:center; font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color:var(--cognac-deep);
+    font-weight:600; margin-bottom:16px;
+  }
+  .lp-chip-row{display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
+  .lp-chip{
+    background:var(--noir); color:#fff; font-size:12.5px; font-weight:600; padding:8px 16px; border-radius:20px;
+  }
+  .lp-chip.lp-accent{background:var(--cognac);}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  @media (max-width:520px){.grid2{grid-template-columns:1fr;}}
+  .feature{
+    background:rgba(255,255,255,0.55); border:1px solid rgba(185,137,90,0.2); border-radius:16px; padding:18px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .feature .icon{font-size:20px; line-height:1;}
+  .feature h3{font-size:14px; font-weight:700; margin-bottom:4px;}
+  .feature p{font-size:12.5px; color:var(--ink-dim); line-height:1.4;}
+
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:620px){.two-col{grid-template-columns:1fr;}}
+
+  .device-row{display:flex; gap:12px; align-items:flex-start; margin-bottom:16px;}
+  .device-row:last-child{margin-bottom:0;}
+  .device-row .dicon{font-size:18px;}
+  .device-row h4{font-size:13.5px; font-weight:700; margin-bottom:2px;}
+  .device-row p{font-size:12px; color:var(--ink-dim); line-height:1.4;}
+
+  .step-row{display:flex; gap:12px; align-items:flex-start; margin-bottom:14px;}
+  .step-row:last-child{margin-bottom:0;}
+  .step-num{
+    width:22px; height:22px; border-radius:50%; background:var(--noir); color:#fff;
+    font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .step-row p{font-size:13px; color:var(--ink); line-height:1.4;}
+  .step-row b{font-weight:700;}
+
+  footer{text-align:center; margin-top:36px; font-size:11px; color:var(--ink-dim); letter-spacing:0.05em;}
+
+
+/* ===== Generator styles ===== */
+
+  :root{
+    --void:#0A0812; --void-2:#141020; --void-3:#1D1730;
+    --gold:#D8B978; --gold-bright:#F3DFA9; --gold-deep:#9C7A3C;
+    --cream:#F3ECDD; --cream-dim:#B9AF9E;
+
+    /* page chrome — matches the Sosa Dollz brand system */
+    --champagne:#FAF0EC; --champagne-2:#F3E4DC;
+    --blush:#E8B4BC; --blush-deep:#C98A93;
+    --sage:#7FA69C; --cognac:#B9895A; --cognac-deep:#8A6535;
+    --ink:#2A211D; --ink-dim:#7A6B62;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    background:
+      radial-gradient(ellipse 700px 420px at 12% -6%, rgba(232,180,188,0.22), transparent 60%),
+      radial-gradient(ellipse 800px 500px at 100% 10%, rgba(185,137,90,0.14), transparent 55%),
+      var(--champagne);
+    font-family:'Jost', sans-serif; color:var(--ink); min-height:100vh; padding:32px 18px 90px;
+  }
+  .starfield{display:none;}
+  .wrap{max-width:1220px; margin:0 auto; position:relative; z-index:1;}
+
+  header{text-align:center; margin-bottom:30px;}
+  .crest{font-size:26px; color:var(--cognac); margin-bottom:6px; letter-spacing:0.3em;}
+  .eyebrow{letter-spacing:0.38em; text-transform:uppercase; font-size:10.5px; color:var(--cognac-deep); margin-bottom:10px; font-weight:600;}
+  h1{font-family:'Playfair Display', serif; font-weight:700; font-size:clamp(30px,5vw,50px); letter-spacing:-0.01em; color:var(--ink);}
+  h1 em{font-style:italic; font-weight:600; background:linear-gradient(100deg, var(--blush-deep), var(--cognac) 60%, var(--sage)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .sub{margin-top:12px; font-size:14px; color:var(--ink-dim); max-width:520px; margin-left:auto; margin-right:auto; line-height:1.6;}
+  .ornament{margin-top:14px; letter-spacing:0.3em; color:var(--blush-deep); font-size:12px;}
+
+  .stage-single{display:grid; grid-template-columns:340px 1fr; gap:32px; align-items:start;}
+  @media (max-width:980px){.stage-single{grid-template-columns:1fr;}}
+  .prompt-stage{display:flex; flex-direction:column;}
+
+  .panel{
+    background:linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.5));
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(185,137,90,0.25);
+    box-shadow:0 12px 34px rgba(122,90,60,0.1);
+    border-radius:18px; padding:22px;
+  }
+  .panel h2{font-family:'Playfair Display', serif; font-style:italic; font-size:15px; font-weight:600; margin-bottom:12px; color:var(--cognac-deep);}
+
+  .sign-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:7px;}
+  @media (max-width:980px){.sign-grid{grid-template-columns:repeat(6,1fr);}}
+  .sign-btn{aspect-ratio:1; border-radius:10px; border:1px solid rgba(185,137,90,0.28); background:rgba(255,255,255,0.5); color:var(--cognac-deep); font-family:'Cinzel', serif; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; transition:.18s; padding:4px;}
+  .sign-btn .glyph{font-size:19px; line-height:1;}
+  .sign-btn .label{font-size:8px; letter-spacing:0.04em; text-transform:uppercase; line-height:1;}
+  .sign-btn:hover{background:rgba(232,180,188,0.18); border-color:var(--blush-deep);}
+  .sign-btn.active{background:linear-gradient(135deg, var(--cognac), var(--cognac-deep)); color:#fff; border-color:transparent; box-shadow:0 5px 14px rgba(185,137,90,0.35);}
+
+  .divider{height:1px; background:linear-gradient(90deg, transparent, rgba(185,137,90,0.35), transparent); margin:18px 0;}
+
+  .birthdate-row{display:flex; gap:8px;}
+  .birthdate-row input{
+    flex:1; background:rgba(255,255,255,0.55); border:1px solid rgba(185,137,90,0.28); border-radius:9px;
+    color:var(--ink); padding:9px 10px; font-family:'Jost', sans-serif; font-size:12.5px;
+  }
+  .birthdate-row button{
+    padding:0 16px; border-radius:9px; border:1px solid rgba(185,137,90,0.3);
+    background:rgba(185,137,90,0.12); color:var(--ink); cursor:pointer; font-size:12px;
+  }
+  .birthdate-row button:hover{background:rgba(185,137,90,0.22);}
+  .stone-indicator{
+    margin-top:9px; font-size:11.5px; color:var(--cognac-deep); min-height:16px;
+  }
+  .stone-indicator .clear-btn{
+    margin-left:8px; text-decoration:underline; cursor:pointer; color:var(--ink-dim); font-size:11px;
+  }
+  .learn-link{
+    font-weight:400; text-transform:none; letter-spacing:0; font-style:italic; color:var(--blush-deep);
+    font-size:11px; cursor:pointer; text-decoration:underline; margin-left:4px;
+  }
+
+  .stone-compare{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:560px){.stone-compare{grid-template-columns:1fr;}}
+  .stone-compare-col{
+    background:rgba(255,255,255,0.5); border:1px solid rgba(185,137,90,0.2); border-radius:12px; padding:14px 16px;
+  }
+  .stone-compare-col h4{font-family:'Playfair Display', serif; font-size:14px; margin-bottom:8px; color:var(--cognac-deep);}
+  .stone-compare-col p{font-size:12px; line-height:1.55; color:var(--ink-dim); margin-bottom:6px;}
+  .stone-compare-col p:last-child{margin-bottom:0;}
+  .stone-compare-col b{color:var(--ink); font-weight:600;}
+
+  .stone-table-wrap{overflow-x:auto; margin-top:6px;}
+  .stone-table{width:100%; border-collapse:collapse; font-size:11.5px;}
+  .stone-table th{
+    text-align:left; padding:8px 10px; background:rgba(185,137,90,0.14); color:var(--cognac-deep);
+    font-weight:700; letter-spacing:0.03em; white-space:nowrap;
+  }
+  .stone-table td{padding:8px 10px; border-bottom:1px solid rgba(185,137,90,0.15); color:var(--ink);}
+  .stone-table tr:nth-child(even) td{background:rgba(255,255,255,0.35);}
+  .stone-table td:first-child{font-weight:600;}
+
+  .swatch-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:8px;}
+  .swatch{
+    aspect-ratio:1; border-radius:50%; cursor:pointer; border:2px solid rgba(255,255,255,0.9);
+    position:relative; transition:.15s; box-shadow:0 1px 4px rgba(122,90,60,0.25);
+  }
+  .swatch.active{border-color:var(--blush-deep); transform:scale(1.1); box-shadow:0 0 0 2px rgba(232,180,188,0.5);}
+  .swatch-label{font-size:9.5px; color:var(--ink-dim); text-align:center; margin-top:14px; line-height:1.2;}
+
+  .chip-list{display:flex; flex-wrap:wrap; gap:6px;}
+  .chip{
+    padding:6px 11px; border-radius:20px; border:1px solid rgba(185,137,90,0.3);
+    background:rgba(255,255,255,0.5); color:var(--ink-dim); font-size:11px; cursor:pointer; transition:.15s;
+  }
+  .chip:hover{background:rgba(232,180,188,0.18); color:var(--ink);}
+  .chip.active{background:linear-gradient(120deg, var(--cognac), var(--cognac-deep)); color:#fff; border-color:transparent; font-weight:600;}
+
+  .btn{width:100%; padding:13px 16px; border-radius:11px; border:none; font-weight:600; font-size:12.5px; letter-spacing:0.03em; cursor:pointer; transition:.18s; font-family:'Jost', sans-serif;}
+  .btn-primary{background:linear-gradient(120deg, var(--blush-deep), var(--cognac)); color:#fff; margin-bottom:9px;}
+  .btn-primary:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(185,137,90,0.35);}
+  .btn-ghost{background:rgba(255,255,255,0.6); color:var(--ink); border:1px solid rgba(185,137,90,0.3); margin-bottom:9px;}
+  .btn-ghost:hover{background:rgba(232,180,188,0.15);}
+
+  .prompt-box{width:100%; background:rgba(255,255,255,0.7); backdrop-filter:blur(10px); border:1px solid rgba(185,137,90,0.25); box-shadow:0 12px 34px rgba(122,90,60,0.1); border-radius:16px; padding:22px 24px;}
+  .prompt-box h3{font-family:'Playfair Display', serif; font-style:italic; font-size:15px; margin-bottom:12px; color:var(--cognac-deep);}
+  .prompt-box textarea{width:100%; min-height:420px; background:rgba(255,255,255,0.6); border:1px solid rgba(185,137,90,0.25); border-radius:10px; color:var(--ink); padding:14px; font-size:12.5px; line-height:1.7; resize:vertical; font-family:'Jost', sans-serif;}
+  .copy-btn{margin-top:12px; padding:10px 18px; border-radius:9px; border:1px solid rgba(185,137,90,0.3); background:rgba(232,180,188,0.15); color:var(--ink); font-size:12.5px; cursor:pointer;}
+  .copy-btn:hover{background:rgba(232,180,188,0.3);}
+
+  footer{text-align:center; margin-top:44px; font-size:10.5px; color:var(--ink-dim); letter-spacing:0.05em;}
+
+
+#generatorScreen{display:none;}
+.back-link{
+  display:inline-flex; align-items:center; gap:6px; margin-bottom:18px;
+  font-family:'Jost', sans-serif; font-size:12.5px; color:var(--cognac-deep);
+  cursor:pointer; text-decoration:none; background:none; border:none; padding:0;
+}
+.back-link:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<div id="landingScreen">
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow"><span>✦</span> Sosadesigns4U Presents <span>✦</span></div>
+    <div class="crown">👑</div>
+    <h1><span class="dark">SOSA</span> <span class="gold">ZODIAC</span></h1>
+    <div class="version">C E L E S T I A L &nbsp; C O L L E C T I O N</div>
+    <div class="tagline">Anything But Ordinary</div>
+    <div class="subtitle">The Ultimate AI Zodiac Card Prompt Generator</div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="num">12</div><div class="label">Zodiac Signs</div></div>
+    <div class="stat"><div class="num">4</div><div class="label">Art Styles</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Card Themes</div></div>
+  </div>
+
+  <button class="lp-cta" id="openGeneratorBtn" type="button"><span>✦</span> Open the Generator <span>✦</span></button>
+  <div class="cta-note">No download needed · Works right in your browser</div>
+
+  <div class="lp-panel">
+    <h2>✦ What's Inside ✦</h2>
+    <div class="lp-chip-row">
+      <div class="lp-chip lp-accent">Dollz</div>
+      <div class="lp-chip lp-accent">Boyz</div>
+      <div class="lp-chip">Complexions</div>
+      <div class="lp-chip">Hairstyles</div>
+      <div class="lp-chip">Art Styles</div>
+      <div class="lp-chip">Card Themes</div>
+      <div class="lp-chip">Birthstones</div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-bottom:16px;">
+    <div class="feature">
+      <div class="icon">💎</div>
+      <div><h3>Birthstone Accurate</h3><p>Every sign's colors are tied to its true calendar birthstone.</p></div>
+    </div>
+    <div class="feature">
+      <div class="icon">⚡</div>
+      <div><h3>Instant Prompts</h3><p>Build and copy a full card prompt in seconds.</p></div>
+    </div>
+    <div class="feature">
+      <div class="icon">🎨</div>
+      <div><h3>4 Art Styles</h3><p>Signature, Hyper Real, Hand Drawn, or CGI Drip.</p></div>
+    </div>
+    <div class="feature">
+      <div class="icon">👑</div>
+      <div><h3>Dollz & Boyz</h3><p>Every sign, styled for your full collection.</p></div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="lp-panel">
+      <h2>✦ Best Viewing Experience ✦</h2>
+      <div class="device-row">
+        <div class="dicon">📱</div>
+        <div><h4>Phone</h4><p>Best in <b>portrait mode</b> — single column scroll</p></div>
+      </div>
+      <div class="device-row">
+        <div class="dicon">💻</div>
+        <div><h4>iPad & Tablet</h4><p>Portrait recommended — landscape works but scroll for buttons</p></div>
+      </div>
+      <div class="device-row">
+        <div class="dicon">🖥️</div>
+        <div><h4>Desktop & Laptop</h4><p>Full two-column layout, no scrolling needed</p></div>
+      </div>
+    </div>
+
+    <div class="lp-panel">
+      <h2>📲 Save to Home Screen</h2>
+      <p style="text-align:center; font-size:11.5px; color:var(--ink-dim); margin-bottom:16px;">Keep Sosa Zodiac one tap away — no app store needed</p>
+      <div class="step-row"><div class="step-num">1</div><p>Tap the <b>Share</b> button in your browser</p></div>
+      <div class="step-row"><div class="step-num">2</div><p>Tap <b>"Add to Home Screen"</b></p></div>
+      <div class="step-row"><div class="step-num">3</div><p>Tap <b>Add</b> — opens like an app anytime 🎉</p></div>
+    </div>
+  </div>
+
+  <div id="birthstone-vs-zodiac-stone" class="lp-panel" style="margin-top:16px; scroll-margin-top:20px;">
+    <h2>✦ Birthstones vs. Zodiac Stones ✦</h2>
+    <p style="font-size:13px; line-height:1.6; color:var(--ink-dim); text-align:center; margin-bottom:18px;">
+      Both offer a personal way to connect with a gemstone — but they're assigned differently. Knowing the difference helps you (and your customers) pick the version that means the most.
+    </p>
+
+    <div class="stone-compare">
+      <div class="stone-compare-col">
+        <h4>💎 Birthstones</h4>
+        <p><b>Assignment:</b> Based on calendar month</p>
+        <p><b>Origins:</b> Historical &amp; religious, often linked to the Breastplate of Aaron</p>
+        <p><b>Common use:</b> Personalized jewelry &amp; gifts — sweet 16 rings, mother's necklaces</p>
+      </div>
+      <div class="stone-compare-col">
+        <h4>♈ Zodiac Stones</h4>
+        <p><b>Assignment:</b> Based on astrological sign</p>
+        <p><b>Origins:</b> Astrological &amp; cultural, tied to celestial beliefs</p>
+        <p><b>Common use:</b> Astrological &amp; spiritual purposes — energy alignment, sign traits</p>
+      </div>
+    </div>
+
+    <p style="font-size:13px; line-height:1.6; color:var(--ink-dim); margin:18px 0;">
+      <b style="color:var(--ink);">The overlap:</b> the two often connect — Garnet is both January's birthstone and an alternate zodiac stone for Aquarius, for example. When they line up, your gemstone choice resonates with both your birth month <i>and</i> your sign.
+    </p>
+
+    <div class="grid2" style="margin-bottom:6px;">
+      <div class="feature">
+        <div class="icon">🌙</div>
+        <div><h3>Birthstone Benefits</h3><p>Strengthens identity and connection to your birth month. Each stone carries its own meaning — protection, love, courage — for daily inspiration.</p></div>
+      </div>
+      <div class="feature">
+        <div class="icon">✨</div>
+        <div><h3>Zodiac Stone Benefits</h3><p>Aligns with your sign to enhance positive traits and balance energy. Supports personal growth, self-awareness, and a deeper spiritual connection.</p></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h2 style="margin-top:6px;">✦ Full Reference Chart ✦</h2>
+    <div class="stone-table-wrap">
+      <table class="stone-table">
+        <thead>
+          <tr><th>Sign</th><th>Zodiac Stone</th><th>Alternates</th><th>Calendar Birthstone</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Aries</td><td>Bloodstone</td><td>Diamond, Opal</td><td>Aquamarine (Mar) / Diamond (Apr)</td></tr>
+          <tr><td>Taurus</td><td>Sapphire</td><td>Emerald</td><td>Diamond (Apr) / Emerald (May)</td></tr>
+          <tr><td>Gemini</td><td>Agate</td><td>Alexandrite, Amethyst</td><td>Emerald (May) / Alexandrite (Jun)</td></tr>
+          <tr><td>Cancer</td><td>Emerald</td><td>Pearl, Ruby, Moonstone</td><td>Alexandrite (Jun) / Ruby (Jul)</td></tr>
+          <tr><td>Leo</td><td>Onyx</td><td>Ruby, Peridot, Jade, Sardonyx, Diamond</td><td>Ruby (Jul) / Peridot (Aug)</td></tr>
+          <tr><td>Virgo</td><td>Carnelian</td><td>Sardonyx, Sapphire, Zircon, Agate</td><td>Peridot (Aug) / Sapphire (Sep)</td></tr>
+          <tr><td>Libra</td><td>Peridot</td><td>Sapphire, Opal, Jasper</td><td>Sapphire (Sep) / Tourmaline (Oct)</td></tr>
+          <tr><td>Scorpio</td><td>Aquamarine</td><td>Opal, Topaz, Citrine, Pearl</td><td>Tourmaline (Oct) / Topaz (Nov)</td></tr>
+          <tr><td>Sagittarius</td><td>Topaz</td><td>Turquoise, Lapis, Onyx</td><td>Topaz (Nov) / Tanzanite (Dec)</td></tr>
+          <tr><td>Capricorn</td><td>Ruby</td><td>Amethyst, Garnet, Emerald</td><td>Tanzanite (Dec) / Garnet (Jan)</td></tr>
+          <tr><td>Aquarius</td><td>Garnet</td><td>Aquamarine, Amethyst, Bloodstone</td><td>Garnet (Jan) / Amethyst (Feb)</td></tr>
+          <tr><td>Pisces</td><td>Amethyst</td><td>Moonstone, Aquamarine, Bloodstone, Jade</td><td>Amethyst (Feb) / Aquamarine (Mar)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:10.5px; color:var(--ink-dim); text-align:center; margin-top:10px;">In the generator, choose <b>Calendar Birthstone</b> (with an exact birthdate for precision) or <b>Zodiac Sign Stone</b> under Stone Source.</p>
+  </div>
+
+  <footer>Sosa Dollz &middot; Zodiac Collection &middot; Anything But Ordinary™</footer>
+</div>
+
+</div>
+
+<div id="generatorScreen">
+<div class="wrap" style="max-width:1220px; padding-top:8px;">
+  <button class="back-link" id="backToLandingBtn" type="button">‹ Back to Sosa Zodiac</button>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <div class="crest">✦</div>
+    <div class="eyebrow">Sosa Dollz Collection</div>
+    <h1>Zodiac Card <em>Generator</em></h1>
+    <p class="sub">Choose your sign, look, and art style. Get a custom Sosa Dollz art prompt ready to paste into your AI tool.</p>
+    <div class="ornament">❧ &nbsp; Anything But Ordinary &nbsp; ❧</div>
+  </header>
+
+  <div class="stage-single">
+    <div class="panel">
+      <h2>Art Style</h2>
+      <div class="chip-list" id="artStyleList" style="margin-bottom:16px;"></div>
+
+      <h2>Card Theme</h2>
+      <div class="chip-list" id="cardThemeList" style="margin-bottom:16px;"></div>
+
+      <h2>Collection</h2>
+      <div class="chip-list" id="genderList" style="margin-bottom:16px;">
+        <div class="chip" data-name="Dollz">Dollz</div>
+        <div class="chip" data-name="Boyz">Boyz</div>
+      </div>
+
+      <h2>Sign</h2>
+      <div class="sign-grid" id="signGrid"></div>
+
+      <div class="divider"></div>
+      <h2>Stone Source <span class="learn-link" id="learnStoneLink">what's the difference?</span></h2>
+      <div class="chip-list" id="stoneSourceList" style="margin-bottom:14px;">
+        <div class="chip" data-name="calendar">Calendar Birthstone</div>
+        <div class="chip" data-name="zodiac">Zodiac Sign Stone</div>
+      </div>
+
+      <div id="bdayFields">
+        <h2>Exact Birthdate <span style="font-weight:400; text-transform:none; letter-spacing:0; font-style:italic; color:var(--ink-dim); font-size:11px;">(optional — for the precise month)</span></h2>
+        <div class="birthdate-row">
+          <input type="date" id="bdayInput">
+          <button id="bdayBtn" type="button">Set</button>
+        </div>
+      </div>
+      <div id="stoneIndicator" class="stone-indicator"></div>
+
+      <div class="divider"></div>
+      <h2>Skin Complexion</h2>
+      <div class="swatch-grid" id="complexionGrid"></div>
+
+      <div class="divider"></div>
+      <h2>Hairstyle</h2>
+      <div class="chip-list" id="hairstyleList"></div>
+
+      <div class="divider"></div>
+      <h2>Hair Color</h2>
+      <div class="swatch-grid" id="haircolorGrid"></div>
+
+      <div class="divider"></div>
+      <button class="btn btn-primary" id="promptBtn">✦ Generate Art Prompt</button>
+      <button class="btn btn-ghost" id="resetBtn">↺ Reset All</button>
+    </div>
+
+    <div class="prompt-stage">
+      <div class="prompt-box" id="promptBox">
+        <h3>AI Art Prompt</h3>
+        <textarea id="promptText" readonly></textarea>
+        <button class="copy-btn" id="copyBtn">Copy Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>Sosa Dollz &middot; Zodiac Card Generator</footer>
+</div>
+
+<script>
+/* ================= DATA ================= */
+const STONES = {
+  Garnet:{colorAdj:"deep garnet-red"},
+  Amethyst:{colorAdj:"deep amethyst-purple"},
+  Aquamarine:{colorAdj:"aquamarine"},
+  Diamond:{colorAdj:"silver-white"},
+  Emerald:{colorAdj:"emerald green"},
+  Alexandrite:{colorAdj:"soft pink and lilac"},
+  Ruby:{colorAdj:"deep ruby-red"},
+  Peridot:{colorAdj:"olive-gold peridot-green"},
+  Sapphire:{colorAdj:"deep sapphire-blue"},
+  Tourmaline:{colorAdj:"rose-pink tourmaline"},
+  Topaz:{colorAdj:"deep amber-topaz"},
+  Tanzanite:{colorAdj:"deep teal-blue tanzanite"},
+  Opal:{colorAdj:"iridescent opal-toned"},
+  Bloodstone:{colorAdj:"deep bloodstone green with crimson flecks"},
+  Agate:{colorAdj:"banded agate in warm mauve and cream"},
+  Onyx:{colorAdj:"deep onyx black"},
+  Carnelian:{colorAdj:"warm carnelian orange-red"}
+};
+
+// "Zodiac Stone" system — sign-based astrological gemstones, distinct from the calendar birthstone chart
+const ZODIAC_STONES = {
+  Aries:{main:"Bloodstone", alternates:["Diamond","Opal"]},
+  Taurus:{main:"Sapphire", alternates:["Emerald"]},
+  Gemini:{main:"Agate", alternates:["Alexandrite","Amethyst"]},
+  Cancer:{main:"Emerald", alternates:["Pearl","Ruby","Moonstone"]},
+  Leo:{main:"Onyx", alternates:["Ruby","Peridot","Jade","Sardonyx","Diamond"]},
+  Virgo:{main:"Carnelian", alternates:["Sardonyx","Sapphire","Zircon","Agate"]},
+  Libra:{main:"Peridot", alternates:["Sapphire","Opal","Jasper"]},
+  Scorpio:{main:"Aquamarine", alternates:["Opal","Topaz","Citrine","Pearl"]},
+  Sagittarius:{main:"Topaz", alternates:["Turquoise","Lapis","Onyx"]},
+  Capricorn:{main:"Ruby", alternates:["Amethyst","Garnet","Emerald"]},
+  Aquarius:{main:"Garnet", alternates:["Aquamarine","Amethyst","Bloodstone"]},
+  Pisces:{main:"Amethyst", alternates:["Moonstone","Aquamarine","Bloodstone","Jade"]}
+};
+// index 0 = January ... 11 = December, per the calendar birthstone chart
+const MONTH_TO_STONE = ["Garnet","Amethyst","Aquamarine","Diamond","Emerald","Alexandrite","Ruby","Peridot","Sapphire","Tourmaline","Topaz","Tanzanite"];
+
+function resolveStone(signName, birthMonthIndex, stoneSource){
+  if(stoneSource === 'zodiac'){
+    const zName = ZODIAC_STONES[signName].main;
+    return { name: zName, colorAdj: STONES[zName].colorAdj };
+  }
+  const stoneName = (birthMonthIndex !== null && birthMonthIndex !== undefined) ? MONTH_TO_STONE[birthMonthIndex] : SIGNS[signName].birthstone;
+  return { name: stoneName, colorAdj: STONES[stoneName].colorAdj };
+}
+
+const OUTFIT_TEMPLATES = {
+  Aries:(s)=>`a fitted ${s.colorAdj} gown with a shimmering finish, a high draped neckline, structured shoulders, and a subtle thigh-high slit, draped in a shimmering pale-gold fleece mantle fastened with a carved ram's-horn clasp in tribute to the legendary Golden Fleece, ${s.name} drop earrings, thigh-high gold metallic boots`,
+  Taurus:(s)=>`a fitted ${s.colorAdj} satin gown with faceted ${s.name}-inspired beading and floral vine embroidery that seems to grow from the fabric, ${s.name} gemstone accents, gilded bull-horn shoulder ornaments echoing the myth of Europa carried by Zeus, delicate gold flower crown, layered gold necklaces, gold metallic knee-high boots`,
+  Gemini:(s)=>`an asymmetric ${s.colorAdj} two-tone gown split like mirrored twin halves, ${s.name} gemstone accents, one side embroidered with a delicate star-map motif honoring the twin stars Castor and Pollux, mismatched ${s.name} drop earrings, gold bangle stack, platform sneakers`,
+  Cancer:(s)=>`a flowing ${s.colorAdj} satin gown with a modest draped neckline and a bodice detailed like overlapping shell plating, shimmering ${s.name} gemstone accents, honoring the crab sent by Hera against the Hydra, ${s.name} drop earrings, layered pearl necklaces, silver strappy heels`,
+  Leo:(s)=>`a ${s.colorAdj} sequin gown with a structured high neckline, ${s.name} gemstone accents, draped in a dramatic mane-inspired faux-fur mantle over one shoulder like the pelt of the invincible Nemean Lion slain by Heracles, ${s.name} and gold hoop earrings, statement gold cuff bracelets, gold metallic thigh-high boots`,
+  Virgo:(s)=>`a ${s.colorAdj} silk gown with delicate gold wheat-sheaf and vine embroidery sacred to Astraea, the harvest goddess said to become the constellation Virgo, ${s.name} gemstone accents, flowing draped sleeves, a thin gold circlet, ${s.name} drop earrings`,
+  Libra:(s)=>`an ${s.colorAdj} gown with a soft shimmering finish, an asymmetric draped skirt, ${s.name} gemstone accents, a jeweled belt hung with tiny gold scale pendants honoring Themis, goddess of divine justice, delicate ${s.name} drop earrings, layered gold necklaces, strappy heels`,
+  Scorpio:(s)=>`a fitted ${s.colorAdj} and black metallic gown with a modest high neckline and a dramatic train sculpted like a scorpion's tail, the very creature said to have felled the hunter Orion, ${s.name} statement earrings etched with star-map constellations, layered black and gold chokers, black metallic thigh-high boots`,
+  Sagittarius:(s)=>`a ${s.colorAdj} and gold silk gown with a high draped neckline and a flowing cape-like train, ${s.name} gemstone accents, delicate constellation embroidery in gold thread tracing across the bodice, a small gold bow-and-arrow pendant honoring Chiron the centaur archer, layered gold chain necklaces, gold strappy heels`,
+  Capricorn:(s)=>`a ${s.colorAdj} structured gown with gold embroidered vine detailing, ${s.name} gemstone accents, a dramatic draped cape that fades into shimmering fish-scale fabric at the hem in tribute to Amalthea, the sea-goat who nursed Zeus, a thin gold circlet, ${s.name} drop earrings`,
+  Aquarius:(s)=>`a ${s.colorAdj} holographic gown with a high draped neckline and flowing water-like panels, ${s.name} gemstone accents, a small silver urn pendant honoring Ganymede, cup-bearer to the gods, ${s.name} drop earrings, chunky silver chain choker, silver metallic platform boots`,
+  Pisces:(s)=>`a flowing ${s.colorAdj} chiffon gown with a scalloped shell-and-fish-scale bodice, ${s.name} gemstone accents, evoking Aphrodite and Eros transformed into fish to escape the monster Typhon, ${s.name} drop earrings, layered pearl anklets, satin ballet flats`
+};
+
+const MALE_OUTFIT_TEMPLATES = {
+  Aries:(s)=>`a fitted black shirt under an ${s.colorAdj} embroidered tunic jacket with flowing details along the collar, a shimmering pale-gold fleece mantle draped across one shoulder fastened with a carved ram's-horn clasp, dark fitted trousers`,
+  Taurus:(s)=>`a fitted black shirt under a ${s.colorAdj} jacket with faceted beading and floral embroidery, gilded bull-horn shoulder ornaments echoing the myth of Zeus as the bull, layered gold chains, dark fitted trousers`,
+  Gemini:(s)=>`a fitted white shirt under an asymmetric ${s.colorAdj} draped jacket split like mirrored twin halves, one side embroidered with a star-map motif honoring Castor and Pollux, a ${s.name} pendant, fitted dark trousers`,
+  Cancer:(s)=>`a ${s.colorAdj} silk shirt buttoned beneath a robe-style jacket with a collar detailed like moonlit shell plating, a ${s.name} pendant honoring the crab of the Hydra myth, dark fitted trousers`,
+  Leo:(s)=>`a fitted gold shirt under a ${s.colorAdj} embroidered jacket with a dramatic sunburst collar, ${s.name}-accented buttons, draped in a mane-inspired faux-fur mantle like the pelt of the Nemean Lion, a thick gold chain, statement gold rings, dark fitted trousers`,
+  Virgo:(s)=>`a fitted white shirt under a ${s.colorAdj} jacket with gold wheat-sheaf embroidery along the lapel honoring the harvest goddess Astraea, a ${s.name}-accented chain, dark fitted trousers`,
+  Libra:(s)=>`a fitted shirt under an ${s.colorAdj} draped jacket with flowing asymmetric panels, a small gold scale pendant honoring Themis, goddess of justice, delicate ${s.name} jewelry, dark fitted trousers`,
+  Scorpio:(s)=>`a fitted black shirt under a ${s.colorAdj} and black draped leather jacket with a clasp shaped like a scorpion's tail, the creature said to have felled Orion, ${s.name} rings and chain, dark fitted trousers`,
+  Sagittarius:(s)=>`a fitted gold shirt under a ${s.colorAdj} embroidered tunic jacket with delicate constellation stitching across the chest, a gold bow-and-arrow pendant honoring Chiron the centaur archer, layered gold chains, dark fitted trousers`,
+  Capricorn:(s)=>`a fitted black turtleneck under a ${s.colorAdj} structured cape-jacket with gold embroidered detailing that fades into fish-scale texture at the hem, honoring the sea-goat Amalthea, ${s.name}-accented cuffs, dark fitted trousers`,
+  Aquarius:(s)=>`a fitted silver shirt under a ${s.colorAdj} jacket with flowing draped panels, a small silver urn pendant honoring Ganymede the water-bearer, a ${s.name}-accented chain, dark fitted trousers`,
+  Pisces:(s)=>`a flowing ${s.colorAdj} silk shirt, buttoned, with trailing fish-scale-textured sleeves, a ${s.name} pendant evoking Aphrodite and Eros's escape as fish, relaxed dark trousers`
+};
+
+const SIGNS = {
+  Aries:{glyph:"♈",dates:"MAR 21 – APR 19",element:"Fire",elIcon:"△",planet:"Mars",planetIcon:"♂",house:"1st · Self",rarity:"Rare",
+    epithet:"Warrior of Beginnings",tags:"BOLD · FEARLESS · UNSTOPPABLE",
+    quotes:["I don't wait for the moment, <em>I create it.</em>","First to leap, first to <em>win.</em>"],
+    traits:[["🔥","Bold",92],["⚡","Fearless",88],["🏆","Competitive",90],["❤️","Passionate",85],["✨","Energetic",87]],
+    birthstone:"Aquamarine",
+    outfit:"a fitted aquamarine gown with a shimmering blue-green sheen, a high draped neckline, structured shoulders, and a subtle thigh-high slit, draped in a shimmering pale-gold fleece mantle fastened with a carved ram's-horn clasp in tribute to the legendary Golden Fleece, aquamarine drop earrings, thigh-high gold metallic boots",
+    lip:"fiery red-orange", glow:"cool aquamarine", constellation:"ram"},
+  Taurus:{glyph:"♉",dates:"APR 20 – MAY 20",element:"Earth",elIcon:"△",planet:"Venus",planetIcon:"♀",house:"2nd · Resources",rarity:"Common",
+    epithet:"Queen of Comfort",tags:"GROUNDED · LOYAL · LUXURIOUS",
+    quotes:["I don't rush greatness, <em>I savor it.</em>","Soft life, <em>strong spine.</em>"],
+    traits:[["💛","Loyal",95],["🌿","Patient",85],["🪨","Grounded",90],["💎","Luxurious",88],["🌹","Sensual",80]],
+    birthstone:"Diamond",
+    outfit:"a fitted silver-white satin gown with faceted diamond-inspired beading and floral vine embroidery that seems to grow from the fabric, diamond-cut gemstone accents, gilded bull-horn shoulder ornaments echoing the myth of Europa carried by Zeus, delicate silver flower crown, layered silver necklaces, silver metallic knee-high boots",
+    lip:"nude rose", glow:"brilliant diamond-white", constellation:"bull"},
+  Gemini:{glyph:"♊",dates:"MAY 21 – JUN 20",element:"Air",elIcon:"△",planet:"Mercury",planetIcon:"☿",house:"3rd · Communication",rarity:"Rare",
+    epithet:"Muse of Duality",tags:"WITTY · CURIOUS · MAGNETIC",
+    quotes:["Two sides, <em>one unforgettable story.</em>","I contain multitudes, <em>deal with it.</em>"],
+    traits:[["💬","Witty",93],["🔍","Curious",90],["🎭","Social",92],["🧠","Clever",88],["🦋","Adaptable",85]],
+    birthstone:"Emerald",
+    outfit:"an asymmetric emerald green two-tone gown split like mirrored twin halves, emerald gemstone accents, one side embroidered with a delicate star-map motif honoring the twin stars Castor and Pollux, mismatched emerald drop earrings, gold bangle stack, emerald-green platform sneakers",
+    lip:"soft rose-pink", glow:"soft emerald", constellation:"twins"},
+  Cancer:{glyph:"♋",dates:"JUN 21 – JUL 22",element:"Water",elIcon:"△",planet:"Moon",planetIcon:"☾",house:"4th · Home",rarity:"Common",
+    epithet:"Keeper of Hearts",tags:"TENDER · INTUITIVE · DEVOTED",
+    quotes:["I don't perform feelings, <em>I feel them.</em>","Home is wherever <em>my heart chooses.</em>"],
+    traits:[["🏠","Nurturing",95],["🌙","Intuitive",90],["💛","Loyal",92],["🛡️","Protective",88],["🥹","Sentimental",85]],
+    birthstone:"Alexandrite",
+    outfit:"a flowing soft pink and lilac satin gown with a modest draped neckline and a bodice detailed like overlapping shell plating, shimmering lilac-pink gemstone accents, honoring the crab sent by Hera against the Hydra, pink-crystal drop earrings, layered pearl necklaces, silver strappy heels",
+    lip:"soft pearl-nude", glow:"soft lilac-pink", constellation:"crab"},
+  Leo:{glyph:"♌",dates:"JUL 23 – AUG 22",element:"Fire",elIcon:"△",planet:"Sun",planetIcon:"☉",house:"5th · Creativity",rarity:"Legendary",
+    epithet:"Sovereign of Light",tags:"RADIANT · BOLD · MAGNETIC",
+    quotes:["I don't seek the spotlight, <em>I am it.</em>","Crowned before <em>I even arrived.</em>"],
+    traits:[["👑","Confident",96],["✨","Charismatic",94],["🦁","Proud",90],["💛","Generous",85],["🎭","Dramatic",88]],
+    birthstone:"Ruby",
+    outfit:"a deep ruby-red and gold sequin gown with a structured high neckline, ruby gemstone accents, draped in a dramatic mane-inspired faux-fur mantle over one shoulder like the pelt of the invincible Nemean Lion slain by Heracles, ruby and gold hoop earrings, statement gold cuff bracelets, gold metallic thigh-high boots",
+    lip:"deep ruby-red", glow:"radiant ruby-gold", constellation:"lion"},
+  Virgo:{glyph:"♍",dates:"AUG 23 – SEP 22",element:"Earth",elIcon:"△",planet:"Mercury",planetIcon:"☿",house:"6th · Service",rarity:"Common",
+    epithet:"Maiden of Purpose",tags:"ANALYTICAL · LOYAL · LIMITLESS",
+    quotes:["Perfect in <em>my standards,</em> not yours.","I don't chase, <em>I align.</em>"],
+    traits:[["🧠","Intelligent",95],["💛","Loyal",92],["🛡️","Reliable",90],["📋","Organized",93],["⭐","Hardworking",91]],
+    birthstone:"Sapphire",
+    outfit:"a deep sapphire-blue silk gown with delicate gold wheat-sheaf and vine embroidery sacred to Astraea, the harvest goddess said to become the constellation Virgo, sapphire gemstone accents, flowing draped sleeves, a thin gold circlet, sapphire drop earrings",
+    lip:"soft mauve-nude", glow:"deep sapphire", constellation:"maiden"},
+  Libra:{glyph:"♎",dates:"SEP 23 – OCT 22",element:"Air",elIcon:"△",planet:"Venus",planetIcon:"♀",house:"7th · Partnerships",rarity:"Rare",
+    epithet:"Keeper of Balance",tags:"GRACEFUL · FAIR · ENCHANTING",
+    quotes:["I don't follow the scale, <em>I balance it.</em>","I choose <em>harmony,</em> not drama."],
+    traits:[["✨","Charm",90],["⚖️","Balanced",93],["🤝","Diplomatic",91],["🎨","Creative",84],["💗","Romantic",88]],
+    birthstone:"Opal",
+    outfit:"an iridescent opal-toned gown blending soft pink, blue, and white shimmer in a shifting satin fabric, an asymmetric draped skirt, opal gemstone accents, a jeweled belt hung with tiny gold scale pendants honoring Themis, goddess of divine justice, delicate opal drop earrings, layered rose-gold necklaces, blush strappy heels",
+    lip:"blush-pink", glow:"iridescent opal", constellation:"scales"},
+  Scorpio:{glyph:"♏",dates:"OCT 23 – NOV 21",element:"Water",elIcon:"△",planet:"Pluto",planetIcon:"♇",house:"8th · Transformation",rarity:"Legendary",
+    epithet:"Oracle of Depths",tags:"INTENSE · MAGNETIC · UNBREAKABLE",
+    quotes:["I don't fear the dark, <em>I own it.</em>","Still waters <em>hide the deepest power.</em>"],
+    traits:[["🔥","Intense",94],["🧲","Magnetic",92],["🌑","Mysterious",90],["❤️","Passionate",91],["⚡","Powerful",93]],
+    birthstone:"Tourmaline",
+    outfit:"a fitted rose-pink tourmaline and black metallic gown with a modest high neckline and a dramatic train sculpted like a scorpion's tail, the very creature said to have felled the hunter Orion, tourmaline statement earrings etched with star-map constellations, layered black and gold chokers, black metallic thigh-high boots",
+    lip:"deep wine-red", glow:"moody rose-tourmaline", constellation:"scorpion"},
+  Sagittarius:{glyph:"♐",dates:"NOV 22 – DEC 21",element:"Fire",elIcon:"△",planet:"Jupiter",planetIcon:"♃",house:"9th · Philosophy",rarity:"Rare",
+    epithet:"Wanderer of Worlds",tags:"FREE · BOLD · ADVENTUROUS",
+    quotes:["I don't need a map, <em>I trust the journey.</em>","Adventure is <em>my love language.</em>"],
+    traits:[["🏹","Adventurous",95],["☀️","Optimistic",90],["🦋","Free-spirited",92],["💬","Honest",87],["🔭","Curious",85]],
+    birthstone:"Topaz",
+    outfit:"a deep amber-topaz and gold silk gown with a high draped neckline and a flowing cape-like train, amber topaz gemstone accents, delicate constellation embroidery in gold thread tracing across the bodice, a small gold bow-and-arrow pendant honoring Chiron the centaur archer, layered gold chain necklaces, gold strappy heels",
+    lip:"terracotta-orange", glow:"warm amber-topaz", constellation:"archer"},
+  Capricorn:{glyph:"♑",dates:"DEC 22 – JAN 19",element:"Earth",elIcon:"△",planet:"Saturn",planetIcon:"♄",house:"10th · Career",rarity:"Common",
+    epithet:"Architect of Ascension",tags:"DISCIPLINED · AMBITIOUS · REGAL",
+    quotes:["I don't chase status, <em>I build empires.</em>","Patience is <em>my quiet superpower.</em>"],
+    traits:[["🏔️","Ambitious",96],["⏳","Disciplined",92],["🛡️","Responsible",90],["🦉","Wise",85],["🌿","Patient",88]],
+    birthstone:"Tanzanite",
+    outfit:"a deep teal-blue tanzanite structured gown with gold embroidered vine detailing, tanzanite gemstone accents, a dramatic draped cape that fades into shimmering fish-scale fabric at the hem in tribute to Amalthea, the sea-goat who nursed Zeus, a thin gold circlet, tanzanite drop earrings",
+    lip:"deep wine-red", glow:"deep tanzanite-blue", constellation:"sea-goat"},
+  Aquarius:{glyph:"♒",dates:"JAN 20 – FEB 18",element:"Air",elIcon:"△",planet:"Uranus",planetIcon:"♅",house:"11th · Community",rarity:"Legendary",
+    epithet:"Visionary of Tomorrow",tags:"VISIONARY · INDEPENDENT · ELECTRIC",
+    quotes:["I don't follow trends, <em>I start revolutions.</em>","My mind lives <em>three years ahead.</em>"],
+    traits:[["🔮","Visionary",94],["🦋","Independent",93],["⚡","Innovative",91],["🌍","Humanitarian",89],["🌀","Eccentric",86]],
+    birthstone:"Garnet",
+    outfit:"a deep garnet-red holographic gown with a high draped neckline and flowing water-like panels, garnet gemstone accents, a small silver urn pendant honoring Ganymede, cup-bearer to the gods, garnet drop earrings, chunky silver chain choker, silver metallic platform boots",
+    lip:"iridescent lilac-silver", glow:"deep garnet-red", constellation:"water-bearer"},
+  Pisces:{glyph:"♓",dates:"FEB 19 – MAR 20",element:"Water",elIcon:"△",planet:"Neptune",planetIcon:"♆",house:"12th · Subconscious",rarity:"Rare",
+    epithet:"Dreamer of Tides",tags:"DREAMY · INTUITIVE · ETHEREAL",
+    quotes:["I don't live in reality, <em>I improve it.</em>","I feel what <em>others pretend not to.</em>"],
+    traits:[["🌊","Dreamy",92],["🌙","Intuitive",93],["🎨","Artistic",90],["💗","Empathetic",94],["🫧","Escapist",76]],
+    birthstone:"Amethyst",
+    outfit:"a flowing deep amethyst-purple chiffon gown with a scalloped shell-and-fish-scale bodice, amethyst gemstone accents, evoking Aphrodite and Eros transformed into fish to escape the monster Typhon, amethyst drop earrings, layered pearl anklets, amethyst satin ballet flats",
+    lip:"iridescent seashell-pink", glow:"dreamy amethyst", constellation:"twin fish"}
+};
+
+const MALE = {
+  Aries:{outfit:"a fitted black shirt under an aquamarine and black embroidered tunic jacket with flowing blue-green details along the collar, a shimmering pale-gold fleece mantle draped across one shoulder fastened with a carved ram's-horn clasp, dark fitted trousers", groom:"a sharp fade with a crisp lightning part, light stubble", epithet:"King of Conquest"},
+  Taurus:{outfit:"a fitted black shirt under a silver-white and diamond-accented jacket with faceted beading and floral embroidery, gilded bull-horn shoulder ornaments echoing the myth of Zeus as the bull, layered silver chains, dark fitted trousers", groom:"a low taper fade with soft waves, full groomed beard", epithet:"King of Comfort"},
+  Gemini:{outfit:"a fitted white shirt under an asymmetric emerald green draped jacket split like mirrored twin halves, one side embroidered with a star-map motif honoring Castor and Pollux, an emerald pendant, fitted dark trousers", groom:"textured curly fringe, clean shave", epithet:"Prince of Duality"},
+  Cancer:{outfit:"a soft pink and lilac silk shirt buttoned beneath a robe-style jacket with a collar detailed like moonlit shell plating, a lilac-crystal pendant honoring the crab of the Hydra myth, dark fitted trousers", groom:"a low fade with soft natural waves, light stubble", epithet:"Guardian of Hearts"},
+  Leo:{outfit:"a fitted gold shirt under a deep ruby-red and gold embroidered jacket with a dramatic sunburst collar, ruby-accented buttons, draped in a mane-inspired faux-fur mantle like the pelt of the Nemean Lion, a thick gold chain, statement gold rings, dark fitted trousers", groom:"structured voluminous curls, sharp lined beard", epithet:"King of Light"},
+  Virgo:{outfit:"a fitted white shirt under a deep sapphire-blue jacket with gold wheat-sheaf embroidery along the lapel honoring the harvest goddess Astraea, a sapphire-accented chain, dark fitted trousers", groom:"a clean side part, precisely groomed beard", epithet:"Master of Purpose"},
+  Libra:{outfit:"a fitted blush shirt under an iridescent opal-toned draped jacket with flowing asymmetric panels, a small gold scale pendant honoring Themis, goddess of justice, delicate opal jewelry, dark fitted trousers", groom:"soft natural waves, clean shave", epithet:"King of Balance"},
+  Scorpio:{outfit:"a fitted black shirt under a rose-pink tourmaline and black draped leather jacket with a clasp shaped like a scorpion's tail, the creature said to have felled Orion, tourmaline rings and chain, dark fitted trousers", groom:"slicked-back hair, a sharp goatee", epithet:"Lord of Depths"},
+  Sagittarius:{outfit:"a fitted gold shirt under a deep amber-topaz embroidered tunic jacket with delicate constellation stitching across the chest, a gold bow-and-arrow pendant honoring Chiron the centaur archer, layered gold chains, dark fitted trousers", groom:"wind-swept curls, light stubble", epithet:"King of the Wild"},
+  Capricorn:{outfit:"a fitted black turtleneck under a deep teal-blue tanzanite structured cape-jacket with gold embroidered detailing that fades into fish-scale texture at the hem, honoring the sea-goat Amalthea, tanzanite-accented cuffs, dark fitted trousers", groom:"a slicked low fade, sharp defined beard line", epithet:"Architect of Empires"},
+  Aquarius:{outfit:"a fitted silver shirt under a deep garnet-red jacket with flowing draped panels, a small silver urn pendant honoring Ganymede the water-bearer, a garnet-accented chain, dark fitted trousers", groom:"an undercut with a textured top, clean shave", epithet:"King of Tomorrow"},
+  Pisces:{outfit:"a flowing deep amethyst-purple silk shirt, buttoned, with trailing fish-scale-textured sleeves, an amethyst pendant evoking Aphrodite and Eros's escape as fish, relaxed dark trousers", groom:"soft violet-tinted waves, light stubble", epithet:"Prince of Tides"}
+};
+
+const RARITY = {
+  Common:{accent:"#8fae9f", bg:"rgba(143,174,159,0.22)", text:"#c7ddd0"},
+  Rare:{accent:"#9c97d6", bg:"rgba(156,151,214,0.24)", text:"#dad8f2"},
+  Legendary:{accent:"#D8B978", bg:"rgba(216,185,120,0.28)", text:"#f3dfa9"}
+};
+
+const COMPLEXIONS = [
+  {name:"Porcelain", hex:"#F5DFC9"}, {name:"Light Ivory", hex:"#EDD1B0"},
+  {name:"Warm Beige", hex:"#E0B48C"}, {name:"Golden Honey", hex:"#D9A066"},
+  {name:"Caramel Tan", hex:"#C8875B"}, {name:"Deep Bronze", hex:"#A8663E"},
+  {name:"Rich Mahogany", hex:"#7A4526"}, {name:"Cocoa Ebony", hex:"#4A2A18"}
+];
+
+const HAIRSTYLES = ["Sleek Silk Press","Voluminous Curls","Box Braids","Locs","Bantu Knots","High Ponytail","Afro Coils","Beach Waves","Straight Bob","Braided Updo","Very Low Fade Bald","Curtain Cut Curls"];
+const HAIRSTYLES_M = ["Low Fade","Waves","Box Braids","Locs","Twists","Afro","Buzz Cut","Cornrows","Textured Curls Top","Bald Fade","Bald"];
+
+const HAIRCOLORS = [
+  {name:"Jet Black", hex:"#1B1512"}, {name:"Chocolate Brown", hex:"#4A2E1E"},
+  {name:"Honey Blonde", hex:"#C99A4E"}, {name:"Copper Auburn", hex:"#A24A2A"},
+  {name:"Rose Gold", hex:"#C98A7A"}, {name:"Platinum Silver", hex:"#C7C2B8"},
+  {name:"Deep Burgundy", hex:"#5C2030"}, {name:"Ash Brown", hex:"#6B5544"}
+];
+
+const POSES = {
+  Aries:"fierce forward power stance, chin lifted, one hand on hip",
+  Taurus:"calm elegant pose, weight settled, serene half-smile",
+  Gemini:"playful mid-twirl pose, hair caught in motion, mischievous grin",
+  Cancer:"soft dreamy pose, arms gently crossed, tender gaze",
+  Leo:"bold main-character power pose, chest out, radiant confident smile",
+  Virgo:"poised precise pose, one hand smoothing her sleeve, composed expression",
+  Libra:"graceful balanced pose, weight on one leg, serene charming smile",
+  Scorpio:"sultry powerful pose, sideways glance, sharp confident smirk",
+  Sagittarius:"adventurous mid-stride pose, wind-swept hair, excited grin",
+  Capricorn:"confident boss-mode pose, arms folded, sharp composed stare",
+  Aquarius:"edgy confident pose, head tilted, cool detached smirk",
+  Pisces:"ethereal floating pose, arms drifting, soft faraway gaze"
+};
+
+const MALE_POSES = {
+  Aries:"commanding power stance, arms crossed, hard confident stare, jaw set",
+  Taurus:"grounded regal stance, weight settled, arms crossed, calm authoritative expression",
+  Gemini:"dynamic mid-stride pose, sharp knowing smirk, confident energy",
+  Cancer:"steady protective stance, arms crossed, quiet strength in his gaze",
+  Leo:"bold commanding power pose, chest out, chin high, radiant regal confidence",
+  Virgo:"composed precise stance, one hand adjusting his cuff, sharp focused expression",
+  Libra:"poised balanced stance, hands clasped, calm commanding presence",
+  Scorpio:"intense powerful stance, sharp sideways glance, unreadable smirk",
+  Sagittarius:"dynamic mid-stride pose, wind-swept hair, bold confident grin",
+  Capricorn:"authoritative boss stance, arms folded, sharp unwavering stare",
+  Aquarius:"edgy commanding stance, head tilted, cool detached confidence",
+  Pisces:"calm grounded stance, arms relaxed at his sides, quiet intense gaze"
+};
+
+function stripTags(html){ return html.replace(/<[^>]+>/g,''); }
+
+const ART_STYLES = [
+  {name:"Sosa Signature Style", directive:"Sosa Signature Style: chibi + bratz-like exaggerated proportions, oversized head, tiny waist, ultra detailed digital illustration, high fashion attitude"},
+  {name:"Sosa Hyper Real", directive:"Sosa Hyper Real style: hyper realistic digital painting, 8K detail, lifelike skin texture and cinematic lighting"},
+  {name:"Sosa Hand Drawn", directive:"Sosa Hand Drawn style: clean lineart, bold ink outlines, flat cel-shaded coloring, illustrated comic-art quality"},
+  {name:"Sosa CGI Drip", directive:"Sosa CGI Drip style: CGI caricature rendering, glossy 3D render, exaggerated stylized proportions, smooth polished shading"}
+];
+
+const CARD_THEMES = ["Moonlit Editorial", "Celestial Tarot"];
+
+let state = { gender:"Dollz", sign:"Taurus", birthMonth:null, stoneSource:"calendar", complexion:COMPLEXIONS[3], hairstyle:HAIRSTYLES[1], haircolor:HAIRCOLORS[1], artStyle:ART_STYLES[0], cardTheme:CARD_THEMES[0] };
+
+
+const artStyleList = document.getElementById('artStyleList');
+ART_STYLES.forEach(s=>{
+  const c=document.createElement('div'); c.className='chip'; c.textContent=s.name; c.dataset.name=s.name;
+  c.addEventListener('click',()=>{state.artStyle=s; syncActive();});
+  artStyleList.appendChild(c);
+});
+
+const cardThemeList = document.getElementById('cardThemeList');
+CARD_THEMES.forEach(t=>{
+  const c=document.createElement('div'); c.className='chip'; c.textContent=t; c.dataset.name=t;
+  c.addEventListener('click',()=>{state.cardTheme=t; syncActive();});
+  cardThemeList.appendChild(c);
+});
+
+const genderList = document.getElementById('genderList');
+genderList.querySelectorAll('.chip').forEach(c=>{
+  c.addEventListener('click',()=>{
+    state.gender=c.dataset.name;
+    state.hairstyle = state.gender === 'Boyz' ? HAIRSTYLES_M[0] : HAIRSTYLES[1];
+    buildHairstyleChips();
+    syncActive();
+  });
+});
+
+
+/* ================= BUILD PICKERS ================= */
+const signGrid = document.getElementById('signGrid');
+Object.keys(SIGNS).forEach(name=>{
+  const b=document.createElement('button');
+  b.className='sign-btn'; b.title=name; b.dataset.sign=name;
+  b.innerHTML = `<span class="glyph">${SIGNS[name].glyph}\uFE0E</span><span class="label">${name}</span>`;
+  b.addEventListener('click',()=>{state.sign=name; state.birthMonth=null; document.getElementById('bdayInput').value=''; syncActive(); updateStoneIndicator();});
+  signGrid.appendChild(b);
+});
+
+function getZodiacSign(month, day){
+  const ranges = [["Capricorn",1,19],["Aquarius",2,18],["Pisces",3,20],["Aries",4,19],
+    ["Taurus",5,20],["Gemini",6,20],["Cancer",7,22],["Leo",8,22],
+    ["Virgo",9,22],["Libra",10,22],["Scorpio",11,21],["Sagittarius",12,21]];
+  const order = ["Capricorn","Aquarius","Pisces","Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn"];
+  for(let i=0;i<ranges.length;i++){
+    if(month === ranges[i][1] && day <= ranges[i][2]) return ranges[i][0];
+    if(month === ranges[i][1] && day > ranges[i][2]) return order[i+1];
+  }
+  return "Capricorn";
+}
+
+document.getElementById('bdayBtn').addEventListener('click', ()=>{
+  const val = document.getElementById('bdayInput').value;
+  if(!val) return;
+  const [,m,dd] = val.split('-').map(Number);
+  state.sign = getZodiacSign(m, dd);
+  state.birthMonth = m - 1; // 0-indexed, matches MONTH_TO_STONE
+  syncActive();
+  updateStoneIndicator();
+});
+
+function updateStoneIndicator(){
+  const el = document.getElementById('stoneIndicator');
+
+  if(state.stoneSource === 'zodiac'){
+    const z = ZODIAC_STONES[state.sign];
+    el.innerHTML = `✦ ${state.sign}'s zodiac stone: <b>${z.main}</b> <span style="color:var(--ink-dim);">(alternates: ${z.alternates.join(', ')})</span>`;
+    return;
+  }
+
+  if(state.birthMonth !== null){
+    const stone = resolveStone(state.sign, state.birthMonth, state.stoneSource);
+    el.innerHTML = `✦ Exact birthstone: <b>${stone.name}</b> <span class="clear-btn" id="clearBdayBtn">clear</span>`;
+    document.getElementById('clearBdayBtn').addEventListener('click', ()=>{
+      state.birthMonth = null;
+      document.getElementById('bdayInput').value = '';
+      updateStoneIndicator();
+    });
+  } else {
+    el.textContent = `Using ${state.sign}'s default calendar birthstone: ${SIGNS[state.sign].birthstone}`;
+  }
+}
+
+const complexionGrid = document.getElementById('complexionGrid');
+COMPLEXIONS.forEach(c=>{
+  const wrap=document.createElement('div');
+  const s=document.createElement('div');
+  s.className='swatch'; s.style.background=c.hex; s.dataset.name=c.name;
+  s.addEventListener('click',()=>{state.complexion=c; syncActive();});
+  wrap.appendChild(s);
+  const lbl=document.createElement('div'); lbl.className='swatch-label'; lbl.textContent=c.name;
+  wrap.appendChild(lbl);
+  complexionGrid.appendChild(wrap);
+});
+
+const hairstyleList = document.getElementById('hairstyleList');
+function buildHairstyleChips(){
+  hairstyleList.innerHTML = '';
+  const list = state.gender === 'Boyz' ? HAIRSTYLES_M : HAIRSTYLES;
+  list.forEach(h=>{
+    const c=document.createElement('div'); c.className='chip'; c.textContent=h; c.dataset.name=h;
+    c.addEventListener('click',()=>{state.hairstyle=h; syncActive();});
+    hairstyleList.appendChild(c);
+  });
+}
+buildHairstyleChips();
+
+const haircolorGrid = document.getElementById('haircolorGrid');
+HAIRCOLORS.forEach(c=>{
+  const wrap=document.createElement('div');
+  const s=document.createElement('div');
+  s.className='swatch'; s.style.background=c.hex; s.dataset.name=c.name;
+  s.addEventListener('click',()=>{state.haircolor=c; syncActive();});
+  wrap.appendChild(s);
+  const lbl=document.createElement('div'); lbl.className='swatch-label'; lbl.textContent=c.name;
+  wrap.appendChild(lbl);
+  haircolorGrid.appendChild(wrap);
+});
+
+function syncActive(){
+  document.querySelectorAll('#genderList .chip').forEach(c=>c.classList.toggle('active', c.dataset.name===state.gender));
+  document.querySelectorAll('.sign-btn').forEach(b=>b.classList.toggle('active', b.dataset.sign===state.sign));
+  document.querySelectorAll('#complexionGrid .swatch').forEach(s=>s.classList.toggle('active', s.dataset.name===state.complexion.name));
+  document.querySelectorAll('#hairstyleList .chip').forEach(c=>c.classList.toggle('active', c.dataset.name===state.hairstyle));
+  document.querySelectorAll('#haircolorGrid .swatch').forEach(s=>s.classList.toggle('active', s.dataset.name===state.haircolor.name));
+  document.querySelectorAll('#artStyleList .chip').forEach(c=>c.classList.toggle('active', c.dataset.name===state.artStyle.name));
+  document.querySelectorAll('#cardThemeList .chip').forEach(c=>c.classList.toggle('active', c.dataset.name===state.cardTheme));
+  document.querySelectorAll('#stoneSourceList .chip').forEach(c=>c.classList.toggle('active', c.dataset.name===state.stoneSource));
+  document.getElementById('bdayFields').style.display = state.stoneSource === 'zodiac' ? 'none' : 'block';
+}
+
+const stoneSourceList = document.getElementById('stoneSourceList');
+stoneSourceList.querySelectorAll('.chip').forEach(c=>{
+  c.addEventListener('click',()=>{
+    state.stoneSource = c.dataset.name;
+    syncActive();
+    updateStoneIndicator();
+  });
+});
+
+document.getElementById('learnStoneLink').addEventListener('click', ()=>{
+  document.getElementById('generatorScreen').style.display = 'none';
+  document.getElementById('landingScreen').style.display = 'block';
+  const target = document.getElementById('birthstone-vs-zodiac-stone');
+  if(target){
+    window.scrollTo(0,0);
+    setTimeout(()=> target.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+  }
+});
+
+/* ================= AI PROMPT ================= */
+document.getElementById('promptBtn').addEventListener('click',()=>{
+  const d = SIGNS[state.sign];
+  const traitList = d.traits.map(([icon,label]) => label).join(', ');
+  const quote1 = stripTags(d.quotes[0]);
+  const quote2 = stripTags(d.quotes[1]);
+  const isBoy = state.gender === 'Boyz';
+  const pose = isBoy ? MALE_POSES[state.sign] : POSES[state.sign];
+  const m = MALE[state.sign];
+  const epithet = isBoy ? m.epithet : d.epithet;
+  const stone = resolveStone(state.sign, state.birthMonth, state.stoneSource);
+  const outfitText = isBoy ? MALE_OUTFIT_TEMPLATES[state.sign](stone) : OUTFIT_TEMPLATES[state.sign](stone);
+
+  const subjectLine = isBoy
+    ? `a striking Sosa Boyz man with a rugged, unmistakably masculine face like a real adult man, not a stylized or feminized character — broad shoulders, strong square jawline, natural bone structure with flat undefined cheeks (no sculpted, contoured, or high fashion-model cheekbones), thicker skin texture, athletic frame, bold thick straight masculine eyebrows with natural texture (never thin, never arched, never plucked or groomed into a curve), no makeup, no blush, no contouring, no eyeliner, no lash extensions, no soft or delicate features anywhere on the face — ${state.complexion.name.toLowerCase()} skin, ${state.hairstyle.toLowerCase()} in ${state.haircolor.name.toLowerCase()} hair, ${m.groom}, wearing ${outfitText}`
+    : `a stunning Sosa Dollz woman, ${state.complexion.name.toLowerCase()} skin, glamorous smoky eye, ${d.lip} glossy lip, ${state.hairstyle.toLowerCase()} in ${state.haircolor.name.toLowerCase()} hair, wearing ${outfitText} — elegant, modestly covered`;
+
+  let prompt;
+
+  if(state.cardTheme === "Celestial Tarot"){
+    prompt = `${state.artStyle.directive}. Tarot-card style card, portrait orientation, Sosa ${isBoy ? 'Boyz' : 'Dollz'} zodiac collection, with a slim decorative frame and delicate corner flourishes — refined and understated, not heavy or overpowering with metallic tone. `+
+`Soft dusky evening sky in gentle blue-lavender tones with warm light low on the horizon and a few visible clouds — moderately lit, not bright daytime, not dark night. Frame reads crisply against the sky without dominating the composition. `+
+`Top-left medallion: ${state.sign} glyph (${d.glyph}). Left rail: "${d.dates}", element ${d.element.toUpperCase()}, planet ${d.planet.toUpperCase()}, ruling house ${d.house.toUpperCase()}. `+
+`Right panel "${state.sign.toUpperCase()} STATUS": ${d.traits.length} gem-styled bars labeled ${traitList}. Two script quote boxes: "${quote1}" / "${quote2}". `+
+`Bottom banner: epithet "${epithet.toUpperCase()}", tags "${d.tags}". `+
+`Subject: ${subjectLine} ${pose}. Celestial theming lives in her outfit only — ${d.constellation} constellation stitched into the fabric in fine thread, gemstone accents in her birthstone (${stone.name}). `+
+`All text and detail crisp and legible at print size, high fashion, luxe trading-card composition.`;
+  } else {
+    prompt = `${state.artStyle.directive}. Sosa ${isBoy ? 'Boyz' : 'Dollz'} album-cover-style poster, portrait orientation. `+
+`Soft dusky evening sky in gentle blue-lavender tones with warm light low on the horizon and a few visible clouds — moderately lit, not bright daytime, not dark night. City skyline crisp and visible behind subject, gold mirror frame and roses framing the scene. `+
+`Subject: ${subjectLine} ${pose}. Celestial theming lives in her outfit only — ${d.constellation} constellation stitched into the fabric in gold thread, gemstone accents in her birthstone (${stone.name}). `+
+`Overlay in elegant gold/blush serif-script lettering: title "${state.sign.toUpperCase()}" at top, glyph (${d.glyph}) in a small medallion, caption "${d.dates} · ${d.element.toUpperCase()} · ${d.planet.toUpperCase()}", epithet "${epithet.toUpperCase()}" near bottom with tags "${d.tags}" beneath. `+
+`Small side panel with trait words ${traitList} and two quotes: "${quote1}" / "${quote2}". `+
+`All text and detail crisp and legible at print size, high-fashion editorial composition.`;
+  }
+
+  document.getElementById('promptText').value = prompt;
+});
+
+document.getElementById('copyBtn').addEventListener('click',()=>{
+  const ta=document.getElementById('promptText'); ta.select(); document.execCommand('copy');
+  const btn=document.getElementById('copyBtn'); const orig=btn.textContent;
+  btn.textContent='Copied ✓'; setTimeout(()=>btn.textContent=orig,1500);
+});
+
+document.getElementById('resetBtn').addEventListener('click',()=>{
+  state = { gender:"Dollz", sign:"Taurus", birthMonth:null, stoneSource:"calendar", complexion:COMPLEXIONS[3], hairstyle:HAIRSTYLES[1], haircolor:HAIRCOLORS[1], artStyle:ART_STYLES[0], cardTheme:CARD_THEMES[0] };
+  buildHairstyleChips();
+  syncActive();
+  document.getElementById('bdayInput').value = '';
+  updateStoneIndicator();
+  document.getElementById('promptText').value = '';
+});
+
+// init
+syncActive();
+updateStoneIndicator();
+document.getElementById('promptBtn').click();
+</script>
+
+</div>
+
+<script>
+document.getElementById('openGeneratorBtn').addEventListener('click', function(){
+  document.getElementById('landingScreen').style.display = 'none';
+  document.getElementById('generatorScreen').style.display = 'block';
+  window.scrollTo(0,0);
+});
+document.getElementById('backToLandingBtn').addEventListener('click', function(){
+  document.getElementById('generatorScreen').style.display = 'none';
+  document.getElementById('landingScreen').style.display = 'block';
+  window.scrollTo(0,0);
+});
+</script>
+</body>
+</html>
